@@ -1,0 +1,125 @@
+{# Invoice Template #}
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<section>
+			<div
+				class="invoice-wrapper" id="print-invoice-wrapper">
+
+				{# Header Section #}
+				<div class="invoice-header">
+					<div class="invoice-logo">
+						<img src="{{ base_path }}/themes/contrib/smart_store_admin/images/toTheNewLogo.svg" alt="{{ 'ToTheNew Logo'|t }}" width="135" height="44">
+					</div>
+					<div class="invoice-title">
+						<p>
+							<strong>{{ "Tax Invoice/Bill of Supply/Cash Memo" | t }}</strong>
+						</p>
+						<p>{{ "(Original for Recipient)" | t }}</p>
+					</div>
+				</div>
+
+				{# Seller & Billing Info #}
+				<div class="row gy-3 mb-3">
+					<div class="col seller-info">
+						<span>
+							<strong>{{ "Sold By :" | t }}</strong>
+						</span><br>
+						<span>{{ data.sender_info.name }}</span><br>
+						<span>{{ data.sender_info.address }}</span>
+					</div>
+					<div class="col billing-info">
+						<span>
+							<strong>{{ "Billing Address :" | t }}</strong>
+						</span><br>
+						<span>{{ data.billing_info.name }}</span><br>
+						<span>{{ data.billing_info.address }}</span>
+					</div>
+				</div>
+
+				<div class="row gy-3 mb-3">
+					{% set today = "now"|date("Y-m-d") %}
+
+					<div class="col seller-info">
+						<span>
+							<strong>{{ "Order Number:" | t }}</strong>
+							{{ data.order_id }}
+						</span>
+						<br>
+						<span>
+							<strong>{{ "Order Date :" | t }}</strong>
+							{{ data.completed_time|date("Y-m-d") }}
+						</span>
+					</div>
+					<div class="col billing-info">
+						<span>
+							<strong>{{ "Invoice Number :" | t }}</strong>
+							{{ data.invoice.invoice_number }}
+						</span><br>
+						<span>
+							<strong>{{ "Invoice Details :" | t }}</strong>
+							{{ data.invoice.invoice_details }}
+						</span><br>
+						<span>
+							<strong>{{ "Invoice Date :" | t }}</strong>
+							{{ today }}
+						</span>
+					</div>
+				</div>
+
+				{# Note Section #}
+				<div class="invoice-note">
+					{{ "This is a replacement issued free of cost against the original order(s) and invoice(s) listed in detail below." | t }}
+				</div>
+
+				{# Order Items Table #}
+				<div class="invoice-table">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">{{ "Sl. No" | t }}</th>
+								<th scope="col">{{ "Description" | t }}</th>
+								<th scope="col">{{ "Unit Price" | t }}</th>
+								<th scope="col">{{ "Qty" | t }}</th>
+								<th scope="col">{{ "Amount" | t }}</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% if data.order %}
+								{% for item in data.order %}
+									<tr>
+										<td class="text-center">{{ loop.index }}</td>
+										<td class="text-center">{{ item.title.value }}</td>
+										<td class="text-center">{{ item.unit_price.number|number_format(2, '.', ',') }}</td>
+										<td class="text-center">{{ item.quantity.value|number_format(0, '.', ',') }}</td>
+										<td class="text-center">{{ item.total_price.number|number_format(2, '.', ',') }}</td>
+									</tr>
+								{% endfor %}
+
+								{% if data.adjustments %}
+									{% for item in data.adjustments %}
+										<tr>
+											<th colspan="4">{{ item.label|t }}</th>
+											<td class="text-center">{{ item.number|number_format(2, '.', ',') }}</td>
+										</tr>
+									{% endfor %}
+								{% endif %}
+
+								<tr>
+									<th colspan="4">{{ "Total Amount"|t }}</th>
+									<td class="text-center">{{ data.total_price|number_format(2, '.', ',') }}</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td colspan="5" class="text-center">{{ "No items found."|t }}</td>
+								</tr>
+							{% endif %}
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

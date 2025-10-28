@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains ss_invoice.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function ss_invoice_theme() {
+  return [
+    'invoice_template' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+    ],
+    'invoice_index' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+    ],
+  ];
+}

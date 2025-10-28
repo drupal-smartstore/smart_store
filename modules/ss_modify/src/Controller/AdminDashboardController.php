@@ -14,7 +14,7 @@ class AdminDashboardController extends ControllerBase {
    */
   public function content() {
     return [
-      '#theme' => 'admin_dashboard_page_template'
+      '#theme' => 'admin_dashboard_page_template',
     ];
   }
 

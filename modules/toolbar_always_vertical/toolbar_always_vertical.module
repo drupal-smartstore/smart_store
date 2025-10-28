@@ -1,24 +1,25 @@
 <?php
 
+/**
+ * @file
+ * Provides toolbar always vertical functionality for Smart Store.
+ */
+
 use Drupal\Core\Url;
-use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\block\Entity\Block;
 
 /**
  * Implements hook_toolbar().
  */
 function toolbar_always_vertical_toolbar() {
-    $config = \Drupal::config('toolbar_always_vertical.settings');
-    $toolbar_title = $config->get('toolbar_title') ?: t('Smart Store');
-    $items['administration'] = [
-        '#type' => 'toolbar_item',
-        'tab' => [
-          '#type' => 'link',
-          '#title' => $toolbar_title,
-          '#url' => Url::fromRoute('system.admin'),
-        ],
-      ];
-    return $items;
-  }
-
+  $config = \Drupal::config('toolbar_always_vertical.settings');
+  $toolbar_title = $config->get('toolbar_title') ?: t('Smart Store');
+  $items['administration'] = [
+    '#type' => 'toolbar_item',
+    'tab' => [
+      '#type' => 'link',
+      '#title' => $toolbar_title,
+      '#url' => Url::fromRoute('system.admin'),
+    ],
+  ];
+  return $items;
+}

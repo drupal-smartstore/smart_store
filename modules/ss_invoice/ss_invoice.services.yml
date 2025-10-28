@@ -1,0 +1,11 @@
+services:
+  ss_invoice.invoice_service:
+    class: Drupal\ss_invoice\Service\InvoiceService
+    arguments:
+      - "@database"
+      - "@current_user"
+      - "@commerce_store.current_store"
+      - "@address.subdivision_repository"
+      - "@entity_type.manager"
+      - "@datetime.time"
+      - "@logger.factory"

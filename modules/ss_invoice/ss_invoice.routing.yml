@@ -1,0 +1,14 @@
+ss_invoice.invoice:
+  path: "/order/{order_id}/invoice"
+  defaults:
+    _controller: '\Drupal\ss_invoice\Controller\InvoiceController::index'
+    _title: "Invoice"
+  requirements:
+    _role: "authenticated"
+
+ss_invoice.download_invoice:
+  path: "/download/{order_id}/invoice"
+  defaults:
+    _controller: '\Drupal\ss_invoice\Controller\InvoiceController::downloadInvoice'
+  requirements:
+    _role: "administrator+admin"
