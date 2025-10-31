@@ -109,7 +109,7 @@ install:
   # Custom
   - toolbar_always_vertical
   - ss_modify
-  - ss_invoice
+  # - ss_invoice
 
 themes:
   - vitoria

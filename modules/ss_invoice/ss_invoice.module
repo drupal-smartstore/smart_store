@@ -20,5 +20,16 @@ function ss_invoice_theme() {
         'data' => NULL,
       ],
     ],
+
+    'delivery_slip_index' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+    ],
+    'delivery_slip_template' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+    ],
   ];
 }
