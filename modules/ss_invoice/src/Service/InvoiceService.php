@@ -376,8 +376,8 @@ class InvoiceService {
       }
 
       // Access check: only administrators or the order's customer.
-      $is_admin = in_array('administrator', $this->currentUser->getRoles(), TRUE);
-      if (!$is_admin && $this->currentUser->id() !== (int) $order_data['customer_id']) {
+      $is_admin = in_array('administrator', $this->currentUser->getRoles());
+      if (!$is_admin && (int) $this->currentUser->id() !== (int) $order_data['customer_id']) {
         return [];
       }
 

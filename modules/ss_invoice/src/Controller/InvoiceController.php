@@ -2,14 +2,11 @@
 
 namespace Drupal\ss_invoice\Controller;
 
-use Dompdf\Dompdf;
-use Dompdf\Options;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\ss_invoice\Service\InvoiceService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Provides controller methods for rendering and downloading invoices.
@@ -87,60 +84,6 @@ class InvoiceController extends ControllerBase {
         ],
       ],
     ];
-  }
-
-  /**
-   * Builds the invoice template render array.
-   *
-   * @param array|null $data
-   *   (optional) Invoice data to render.
-   *
-   * @return array
-   *   A render array for the invoice invoice_template theme.
-   */
-  public function invoiceTemplate(?array $data = NULL): array {
-    $build = ['#theme' => 'invoice_template'];
-    // Ensure data is only added if provided.
-    if (!empty($data)) {
-      $build['#data'] = $data;
-    }
-    return $build;
-  }
-
-  /**
-   * Generates and returns the invoice as a downloadable PDF file.
-   *
-   * @param int $order_id
-   *   The order ID.
-   *
-   * @return \Symfony\Component\HttpFoundation\Response
-   *   The response containing the generated PDF.
-   */
-  public function downloadInvoice(int $order_id): Response {
-    $build = $this->invoiceTemplate($this->invoiceService->getUserDetails($order_id));
-    $html = $this->renderer->renderRoot($build);
-
-    $options = new Options();
-    $options->set('defaultFont', 'DejaVu Sans');
-    $options->set('isRemoteEnabled', TRUE);
-    $options->set('chroot', DRUPAL_ROOT);
-
-    $dompdf = new Dompdf($options);
-    $dompdf->loadHtml($html);
-    $dompdf->setPaper('A4', 'portrait');
-    $dompdf->render();
-
-    $output = $dompdf->output();
-
-    return new Response(
-      $output,
-      200,
-      [
-        'Content-Type' => 'application/pdf',
-        'Content-Disposition' => 'attachment; filename="invoice.pdf"',
-        'Content-Length' => strlen($output),
-      ]
-    );
   }
 
 }
