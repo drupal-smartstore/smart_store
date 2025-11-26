@@ -1,0 +1,9 @@
+access sales summary report:
+  title: "Access Sales Summary Report"
+  description: "Allows users to access the Sales Summary Report page."
+  restrict access: TRUE
+
+access customer summary report:
+  title: "Access customer Summary Report"
+  description: "Allows users to access the customer Summary Report page."
+  restrict access: TRUE

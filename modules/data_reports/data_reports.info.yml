@@ -1,0 +1,5 @@
+name: Data Reports
+type: module
+description: Provides a framework for data reporting and AI-based analytics.
+core_version_requirement: ^9.3 | ^10 | ^11
+package: Data & Analytics

@@ -18,6 +18,7 @@
         }
     ],
     "require": {
+        "dompdf/dompdf": "^3.1",
         "drupal/admin_toolbar": "^3.4",
         "drupal/adminimal_theme": "^1.7",
         "drupal/better_exposed_filters": "^6",
@@ -28,6 +29,7 @@
         "smartstore/smart_store_admin":"1.x-dev",
         "smartstore/vitoria": "1.0.x-dev",
         "drupal/commerce_autosku": "^2.1",
+        "drupal/commerce_stock": "^3.0",
         "drupal/backup_migrate": "^5.0",
         "drupal/color_field": "^3.0",
         "drupal/search_api": "^1.35",
@@ -58,16 +60,11 @@
         "drupal-gitlab/change_user_route": "dev-8.x-2.x@dev",
         "enyo/dropzone": "^6.0@beta",
         "npm-asset/intl-tel-input": "^17.0"
-        
-
     },
     "extra": {
         "patches": {
             "drupal-gitlab/change_user_route": {
                 "Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-06-15/change_user_route.3.0.0.rector.patch"
-            },
-            "drupal/entity_browser": {
-                "Entity browser widget fix": "https://www.drupal.org/files/issues/2024-04-15/entity_browser-3440973.patch"
             }
         }
     }
