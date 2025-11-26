@@ -1,10 +1,17 @@
 <?php
 
 /**
+ * @file
+ * Provides hooks and form alterations for the ss_modify module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
  * Implements hook_form_alter().
  */
-function ss_modify_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
- // Check for the specific form.
+function ss_modify_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Check for the specific form.
   if (strpos($form_id, 'node_') === 0) {
     foreach ($form as $key => &$element) {
       if (is_array($element) && isset($element['#type']) && $element['#type'] === 'text_format') {
@@ -17,8 +24,7 @@ function ss_modify_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     }
   }
   elseif ($form_id == 'views_form_content_page_1') {
-
-    // Remove action elements for Content Managers
+    // Remove action elements for Content Managers.
     $current_user = \Drupal::currentUser();
     // Check if the actions element exists.
     if (!in_array('administrator', $current_user->getRoles())) {
@@ -34,12 +40,12 @@ function ss_modify_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
           unset($form['header']['node_bulk_form']['action']['#options']['node_promote_action']);
         }
 
-         // Remove the 'save' action.
+        // Remove the 'save' action.
         if (isset($form['header']['node_bulk_form']['action']['#options']['node_save_action'])) {
           unset($form['header']['node_bulk_form']['action']['#options']['node_save_action']);
         }
 
-         // Remove the 'unpromote' action.
+        // Remove the 'unpromote' action.
         if (isset($form['header']['node_bulk_form']['action']['#options']['node_unpromote_action'])) {
           unset($form['header']['node_bulk_form']['action']['#options']['node_unpromote_action']);
         }
@@ -63,7 +69,7 @@ function ss_modify_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
         if (isset($form['header']['node_bulk_form']['action']['#options']['node_make_unsticky_action'])) {
           unset($form['header']['node_bulk_form']['action']['#options']['node_make_unsticky_action']);
         }
-   
+
       }
     }
   }
@@ -72,8 +78,8 @@ function ss_modify_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
 /**
  * Custom submit handler for the login form.
  */
-function ss_modify_user_login_redirect(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  // Customer user redirect to front page
+function ss_modify_user_login_redirect(&$form, FormStateInterface $form_state) {
+  // Customer user redirect to front page.
   $account = \Drupal::currentUser();
   if ($account->isAuthenticated()) {
     $form_state->setRedirect('<front>');
@@ -83,7 +89,7 @@ function ss_modify_user_login_redirect(&$form, \Drupal\Core\Form\FormStateInterf
 /**
  * Redirect to the login page after form submission.
  */
-function ss_modify_user_register_redirect(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function ss_modify_user_register_redirect(&$form, FormStateInterface $form_state) {
   $form_state->setRedirect('user.login');
 }
 

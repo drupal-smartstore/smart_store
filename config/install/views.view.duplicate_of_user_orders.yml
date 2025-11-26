@@ -19,7 +19,7 @@ dependencies:
     - state_machine
     - user
 _core:
-  default_config_hash: onODpRJw_ndLaTHVDc9-K-9CJHMEWxjZ1_KzgD4T2Mw
+  default_config_hash: vG0qq8i9QxFbAoFUzXcWbAO09elDfHzRf9QO-6DR0Xo
 id: duplicate_of_user_orders
 label: 'My Orders'
 module: views
@@ -2221,7 +2221,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a  href=\"/order-details/{{ order_id }}\">\r\n    <div class=\"order-card\">\r\n<div class=\"order-img\">{{ field_image }}</div>\r\n<div class=\"order-detail\">\r\n<div class=\"order-id\">{{ product_id }} </div>\r\n<div class=\"order-info\">\r\n{% if attribute_color %}\r\n <div class=\"order-color\">Color : {{ attribute_color }}  </div>\r\n{% endif %}\r\n{% if attribute_size %}\r\n <div class=\"order-size\">Size : {{ attribute_size }} </div>\r\n{% endif %}\r\n</div>\r\n</div>\r\n<div class=\"order-price\">{{ price__number }}</div>\r\n<div class=\"order-status\">\r\n<p>Confirmed !\r\nYour Order has been placed.</p>\r\n<span class=\"order-state\">{{ state }} </span> on  {{ placed }}\r\n</div>\r\n</div>\r\n\r\n</a>"
+            text: "<div class=\"order-list-info\">\r\n    <a href=\"/order-details/{{ order_id }}\">\r\n        <div class=\"order-card\">\r\n            <div class=\"order-img\">{{ field_image }}</div>\r\n            <div class=\"order-detail\">\r\n                <div class=\"order-id\">{{ product_id }} </div>\r\n                <div class=\"order-info\">\r\n                    {% if attribute_color %}\r\n                    <div class=\"order-color\">Color : {{ attribute_color }} </div>\r\n                    {% endif %}\r\n                    {% if attribute_size %}\r\n                    <div class=\"order-size\">Size : {{ attribute_size }} </div>\r\n                    {% endif %}\r\n                </div>\r\n            </div>\r\n            <div class=\"order-price\">{{ price__number }}</div>\r\n            <div class=\"order-status\">\r\n                <p>Confirmed !\r\n                    Your Order has been placed.</p>\r\n                <span class=\"order-state\">{{ state }} </span> on {{ placed }}\r\n            </div>\r\n        </div>\r\n    </a>\r\n\r\n    <div class=\"document-info\">\r\n        <a href=\"/order/{{ order_id }}/invoice\" class=\"button\">Invoice Slip</a>\r\n        <a href=\"/order/{{ order_id }}/delivery\" class=\"button\">Delivery Slip</a>\r\n    </div>\r\n</div>"
             make_link: false
             path: 'order-details/{{ order_id }}'
             absolute: false

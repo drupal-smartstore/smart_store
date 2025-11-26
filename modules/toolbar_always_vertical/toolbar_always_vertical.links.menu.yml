@@ -1,7 +1,6 @@
 toolbar_always_vertical.settings:
-  title: 'Toolbar Title Rename'
-  description: 'Configure the title for Toolbar.'
+  title: "Toolbar Title Rename"
+  description: "Configure the title for Toolbar."
   parent: system.admin_config_system
   route_name: toolbar_always_vertical.settings
   weight: 100
-

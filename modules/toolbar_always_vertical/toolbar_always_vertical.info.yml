@@ -1,6 +1,6 @@
-name: 'Toolbar always vertical on the left'
+name: "Toolbar always vertical on the left"
 type: module
-description: 'Shows the toolbar by default in vertical mode, on the left side and hide it on frontend pages.'
+description: "Shows the toolbar by default in vertical mode, on the left side and hide it on frontend pages."
 core_version_requirement: ^9 || ^10
 dependencies:
   - toolbar

@@ -1,0 +1,5 @@
+print_invoice:
+  js:
+    js/print-invoice.js: {}
+  dependencies:
+    - core/jquery

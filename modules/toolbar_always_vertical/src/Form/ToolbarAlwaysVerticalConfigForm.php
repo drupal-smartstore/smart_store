@@ -5,6 +5,9 @@ namespace Drupal\toolbar_always_vertical\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
+/**
+ * Configure Toolbar Always Vertical settings for this site.
+ */
 class ToolbarAlwaysVerticalConfigForm extends ConfigFormBase {
 
   /**
@@ -46,4 +49,5 @@ class ToolbarAlwaysVerticalConfigForm extends ConfigFormBase {
 
     parent::submitForm($form, $form_state);
   }
+
 }
