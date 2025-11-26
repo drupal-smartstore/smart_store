@@ -19,6 +19,6 @@ default:
       value: true
   body:
     -
-      value: '<div class="margin-bottom-20"><img src="https://media.licdn.com/dms/image/C560BAQGjUZbDAenjbw/company-logo_200_200/0/1631349057695?e=2147483647&amp;v=beta&amp;t=iVTekywaRIPYBx-p8PXqUFBoiOZCmwaPftLgMUuTxDI" alt="logo" width="110" height="110"></div><div><p>To be a recognized world leader and authority in the industry for design and creativity.</p><p>Fax: +098 000 0000<br>E-mail: info@website.com</p></div>'
+      value: '<div class="margin-bottom-20"><img src="https://media.licdn.com/dms/image/C560BAQGjUZbDAenjbw/company-logo_200_200/0/1631349057695?e=2147483647&amp;v=beta&amp;t=iVTekywaRIPYBx-p8PXqUFBoiOZCmwaPftLgMUuTxDI" alt="logo" width="110" height="110"></div><div><p>TO THE NEW is a digital technology services company providing innovative product engineering solutions to diverse industries across the globe.</p><p>Tel: +91 120 4601800<br>E-mail: contact@tothenew.com</p></div>'
       format: full_html
       summary: ''

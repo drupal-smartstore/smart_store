@@ -19,6 +19,6 @@ default:
       value: true
   body:
     -
-      value: '<p>Copyright ©&nbsp;2024&nbsp;<a href="https://www.tothenew.com/">To The New</a>. All rights reserved.</p>'
+      value: '<p>Copyright ©&nbsp;2025&nbsp;<a href="https://www.tothenew.com?utm_source=smart-store&utm_medium=footer&utm_campaign=Vitoria" target="_blank">To The New</a>. |  All rights reserved. Powered by To The New.</p>'
       format: full_html
       summary: ''
