@@ -2,3 +2,5 @@ name: "Smart Store Invoice"
 type: module
 description: "Provides smart store Invoice"
 core_version_requirement: ^10
+dependencies:
+  - commerce:commerce_store
