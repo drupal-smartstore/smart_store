@@ -75,9 +75,16 @@ class InvoiceController extends ControllerBase {
    *   A render array for the invoice index theme.
    */
   public function index($order_id): array {
+    $logo = \Drupal::config('system.site')->get('logo.url');
+    if (empty($logo)) {
+      $logo = "/sites/default/files/inline-images/TTN-logo.svg__2.jpg";
+    }
     return [
       '#theme' => 'invoice_index',
-      '#data' => $this->invoiceService->getUserDetails((int) $order_id),
+      '#data' => [
+        'data' => $this->invoiceService->getUserDetails((int) $order_id),
+        'logo' => $logo,
+      ],
       '#attached' => [
         'library' => [
           'ss_invoice/print_invoice',

@@ -9,3 +9,10 @@ services:
       - "@entity_type.manager"
       - "@datetime.time"
       - "@logger.factory"
+
+  ss_invoice.twig_extension:
+    class: Drupal\ss_invoice\SsInvoiceTwigExtension
+    arguments:
+      - "@current_user"
+    tags:
+      - { name: twig.extension }

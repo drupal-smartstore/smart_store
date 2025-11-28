@@ -11,7 +11,7 @@ ss_invoice.download:
   defaults:
     _controller: '\Drupal\ss_invoice\Controller\DownloadSlipController::downloadDocument'
   requirements:
-    _role: "administrator+admin"
+    _role: "authenticated"
 
 ss_invoice.delivery:
   path: "/order/{order_id}/delivery"
@@ -19,4 +19,4 @@ ss_invoice.delivery:
     _controller: '\Drupal\ss_invoice\Controller\DeliverySlipController::index'
     _title: "Delivery Slip"
   requirements:
-    _role: "authenticated"
+    _role: "administrator"
