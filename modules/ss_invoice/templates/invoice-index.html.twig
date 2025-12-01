@@ -1,11 +1,13 @@
 {% if data.data %}
 	{% if data.data.order_id %}
-		<a href="{{ path('ss_invoice.download', {'order_id': data.data.order_id, 'type': 'invoice'}) }}" class="button--primary button">
-			{{ 'Download Invoice'|t }}
-		</a>
-		<button type="button" class="print-button">
-			{{ 'Print Invoice' | t }}
-		</button>
+		<div class="bill-invoice">
+			<a href="{{ path('ss_invoice.download', {'order_id': data.data.order_id, 'type': 'invoice'}) }}" class="button--primary button">
+				{{ 'Download Invoice'|t }}
+			</a>
+			<button type="button" class="print-button">
+				{{ 'Print Invoice' | t }}
+			</button>
+		</div>
 	{% endif %}
 
 	{{ include('invoice-template.html.twig', { data: data }) }}
