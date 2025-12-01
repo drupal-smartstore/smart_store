@@ -1,9 +1,9 @@
-{% if data %}
-	{% if data.order_id %}
-		<a href="{{ path('ss_invoice.download', {'order_id': data.order_id, 'type': 'invoice'}) }}" class="button--primary button">
+{% if data.data %}
+	{% if data.data.order_id %}
+		<a href="{{ path('ss_invoice.download', {'order_id': data.data.order_id, 'type': 'invoice'}) }}" class="button--primary button">
 			{{ 'Download Invoice'|t }}
 		</a>
-		<button type="button" class="btn btn-primary print-button">
+		<button type="button" class="print-button">
 			{{ 'Print Invoice' | t }}
 		</button>
 	{% endif %}
