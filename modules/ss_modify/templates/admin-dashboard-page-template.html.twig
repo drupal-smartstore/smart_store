@@ -1,16 +1,17 @@
 <div class="admin-page-container">
 	<div class="record-sec1 mb-30">
 		<div id="sales-chart-block" class="cmn">
-			{{ drupal_entity('block_content', '8b239bf2-8359-4afa-9364-20903e7580e8') }}
+			{{ drupal_block('commerce_sales_chart_block') }}
 		</div>
 		<div id="income-chart-block" class="cmn">
 			{{ drupal_entity('block_content', '4e4fd182-30be-486b-b0b8-95013c8a77e0') }}
 		</div>
 		<div id="orders-paid-chart-block" class="cmn">
-			{{ drupal_entity('block_content', 'e8b05901-43a9-43aa-bbe7-dbbd8f045520') }}
+			{{ drupal_block('total_orders_chart_block') }}
 		</div>
 		<div id="visitor-chart-block" class="cmn">
-			{{ drupal_entity('block_content', '46dd985b-1c4c-4683-9798-e82770392335') }}
+		{{ drupal_block('total_users_chart_block') }}
+
 		</div>
 	</div>
 	<div class="record-sec2 mb-30">

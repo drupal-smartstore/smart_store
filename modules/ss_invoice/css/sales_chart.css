@@ -1,0 +1,48 @@
+#sales-chart-container {
+  background-color: #ffffff;
+  padding: 10px 15px 20px 15px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+.icon-sales-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.icon img {
+  width: 60px;
+  height: 60px;
+}
+
+.total-sales h4 {
+  font-size: 16px;
+  color: #575864;
+  margin: 0;
+}
+
+.total-sales h4 span {
+  font-size: 30px;
+  display: block;
+  color: #000;
+  font-weight: bold;
+}
+
+.percentage-change {
+  font-size: 19px;
+  color: #5fc490;
+  font-weight: 700;
+  padding-left: 15px;
+}
+
+.percentage-change::before {
+
+  margin-right: 5px;
+}
+
+#sales-chart {
+  width: 100%;
+}

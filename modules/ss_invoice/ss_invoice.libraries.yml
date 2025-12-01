@@ -3,3 +3,36 @@ print_invoice:
     js/print-invoice.js: {}
   dependencies:
     - core/jquery
+
+sales_chart:
+  version: 1.x
+  css:
+    theme:
+      css/sales_chart.css: {}
+  js:
+    js/sales_chart.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+total_orders_chart:
+  version: 1.x
+  css:
+    theme:
+      css/total-orders.css: {}
+  js:
+    https://cdn.jsdelivr.net/npm/apexcharts: { type: external }
+    js/total-orders.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+total_users_chart:
+  js:
+    js/total_users_chart.js: {}
+  css:
+    theme:
+      css/total_vistor_chart.css: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupalSettings
+
