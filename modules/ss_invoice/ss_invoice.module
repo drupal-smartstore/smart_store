@@ -8,8 +8,7 @@
 /**
  * Implements hook_theme().
  */
-function ss_invoice_theme()
-{
+function ss_invoice_theme() {
   return [
     'invoice_template' => [
       'variables' => [
@@ -31,30 +30,6 @@ function ss_invoice_theme()
       'variables' => [
         'data' => NULL,
       ],
-    ],
-    'sales_chart_block' => [
-      'variables' => [
-        'sales_data' => NULL,
-        'labels' => NULL,
-        'total_sales' => NULL,
-      ],
-      'template' => 'sales-chart-block',
-    ],
-    'total_orders_block' => [
-      'variables' => [
-        'orders_data' => NULL,
-        'labels' => NULL,
-        'percentage_increase' => NULL,
-      ],
-      'template' => 'total-orders-block',
-    ],
-    'total_users_chart' => [
-      'variables' => [
-        'users_data' => NULL,
-        'labels' => NULL,
-        'percentage_increase' => NULL,
-      ],
-      'template' => 'total-users-chart',
     ],
 
   ];

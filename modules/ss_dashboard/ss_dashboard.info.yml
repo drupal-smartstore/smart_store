@@ -1,0 +1,8 @@
+name: "Smart Store Dashboard"
+type: module
+description: "Provides smart store Dashboard"
+core_version_requirement: ^10
+dependencies:
+  - commerce:commerce_order
+libraries:
+  - ss_dashboard/ss_dashboard.global_js

@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Contains ss_dashboard.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function ss_dashboard_theme() {
+  return [
+    'sales_chart_block' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+      'template' => 'sales-chart-block',
+    ],
+    'total_orders_block' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+      'template' => 'total-orders-block',
+    ],
+    'total_users_chart' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+      'template' => 'total-users-chart',
+    ],
+  ];
+}

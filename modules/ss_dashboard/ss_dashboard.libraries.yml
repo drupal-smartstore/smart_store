@@ -1,0 +1,30 @@
+ss_dashboard.global_js:
+  js:
+    https://cdn.jsdelivr.net/npm/apexcharts/dist/apexcharts.min.js:
+      { type: external }
+  dependencies:
+    - core/jquery
+
+ss_dashboard.sales_chart:
+  js:
+    js/sales-chart.js: {}
+  dependencies:
+    - ss_dashboard/global_js
+    - core/drupalSettings
+    - core/jquery
+
+ss_dashboard.order_stats:
+  js:
+    js/total-orders.js: {}
+  dependencies:
+    - ss_dashboard/global_js
+    - core/drupalSettings
+    - core/jquery
+
+ss_dashboard.total_users:
+  js:
+    js/total-users.js: {}
+  dependencies:
+    - ss_dashboard/global_js
+    - core/drupalSettings
+    - core/jquery
