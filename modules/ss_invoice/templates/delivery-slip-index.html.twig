@@ -1,11 +1,13 @@
-{% if data %}
-	{% if data.order_id %}
-		<a href="{{ path('ss_invoice.download', {'order_id': data.order_id, 'type': 'delivery'}) }}" class="button--primary button">
-    {{ 'Download Delivery Slip'|t }}
-       </a>
-		<button type="button" class="btn btn-primary print-button">
-			{{ 'Print Delivery Slip' | t }}
-		</button>
+{% if data.data %}
+	{% if data.data.order_id %}
+		<div class="bill-invoice">
+			<a href="{{ path('ss_invoice.download', {'order_id': data.data.order_id, 'type': 'delivery'}) }}" class="button--primary button">
+				{{ 'Download Delivery Slip'|t }}
+			</a>
+			<button type="button" class="btn btn-primary print-button">
+				{{ 'Print Delivery Slip' | t }}
+			</button>
+		</div>
 	{% endif %}
 
 	{{ include('delivery-slip-template.html.twig', { data: data }) }}

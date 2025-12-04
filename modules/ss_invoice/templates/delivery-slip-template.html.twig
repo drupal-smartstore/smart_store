@@ -1,138 +1,177 @@
-{# Delivery Slip Template #}
 <!DOCTYPE html>
 <html>
-  <head></head>
-  <body>
-    <section>
-      <div class="delivery-wrapper" id="print-slip-wrapper">
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ 'Delivery Slip'|t }}</title>
 
-        {# Header Section #}
-        <div class="delivery-header">
-          <div class="delivery-logo">
-            <img src="{{ site_logo }}" alt="{{ 'ToTheNew Logo'|t }}" width="135" height="44">
-          </div>
-          <div class="delivery-title">
-            <p>
-              <strong>{{ "Delivery Slip" | t }}</strong>
-            </p>
-            <p>{{ "(For Recipient)" | t }}</p>
-          </div>
-        </div>
+		<style>
+			.table-body {
+				margin: 0;
+				padding: 20px;
+				font-size: 13px;
+				color: #222;
+			}
 
-        {# Seller & Shipping Info #}
-        <div class="row gy-3 mb-3">
-          <div class="col seller-info">
-            <span>
-              <strong>{{ "Dispatched By :" | t }}</strong>
-            </span><br>
-            <span>{{ data.sender_info.name }}</span><br>
-            <span>{{ data.sender_info.address }}</span><br>
-            {% if data.sender_info.contact %}
-              <span>{{ "Contact :"|t }} {{ data.sender_info.contact }}</span>
-            {% endif %}
-          </div>
+			.table-wrapper {
+				width: 100%;
+				border: 1px solid #000;
+				padding: 20px;
+				background: #fff;
+			}
 
-          <div class="col shipping-info">
-            <span>
-              <strong>{{ "Shipping Address :" | t }}</strong>
-            </span><br>
-            <span>{{ data.shipping_info.name }}</span><br>
-            <span>{{ data.shipping_info.address }}</span><br>
-            {% if data.shipping_info.contact %}
-              <span>{{ "Contact :"|t }} {{ data.shipping_info.contact }}</span>
-            {% endif %}
-          </div>
-        </div>
+			.header-table {
+				width: 100%;
+				border-bottom: 2px solid #000;
+				margin-bottom: 20px;
+			}
 
-        {# Delivery Details Section #}
-        <div class="row gy-3 mb-3">
-          {% set today = "now"|date("Y-m-d") %}
+			.header-table td {
+				vertical-align: top;
+				padding: 5px;
+			}
 
-          <div class="col delivery-info">
-            <span>
-              <strong>{{ "Order Number :" | t }}</strong>
-              {{ data.order_id }}
-            </span><br>
-            <span>
-              <strong>{{ "Order Date :" | t }}</strong>
-              {{ data.completed_time|date("Y-m-d") }}
-            </span><br>
-            <span>
-              <strong>{{ "Delivery Slip No :" | t }}</strong>
-              {{ data.delivery_slip.slip_number }}
-            </span><br>
-            <span>
-              <strong>{{ "Delivery Date :" | t }}</strong>
-              {{ today }}
-            </span>
-          </div>
+			.header-title {
+				text-align: right;
+				font-size: 18px;
+				font-weight: bold;
+			}
 
-          <div class="col transport-info">
-            <span>
-              <strong>{{ "Courier / Transport :" | t }}</strong>
-              {{ data.delivery_slip.transport_name }}
-            </span><br>
-            <span>
-              <strong>{{ "Tracking ID :" | t }}</strong>
-              {{ data.delivery_slip.tracking_id }}
-            </span><br>
-            <span>
-              <strong>{{ "Dispatch Mode :" | t }}</strong>
-              {{ data.delivery_slip.dispatch_mode }}
-            </span>
-          </div>
-        </div>
+			.info-table {
+				width: 100%;
+				margin-bottom: 15px;
+			}
 
-        {# Note Section #}
-        <div class="delivery-note">
-          {{ "Goods mentioned below are delivered in good condition. Please verify and acknowledge the receipt." | t }}
-        </div>
+			.info-table td {
+				vertical-align: top;
+				padding: 5px;
+			}
 
-        {# Order Items Table #}
-        <div class="delivery-table">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">{{ "Sl. No" | t }}</th>
-                <th scope="col">{{ "Description" | t }}</th>
-                <th scope="col">{{ "Qty" | t }}</th>
-                <th scope="col">{{ "Remarks" | t }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% if data.order %}
-                {% for item in data.order %}
-                  <tr>
-                    <td class="text-center">{{ loop.index }}</td>
-                    <td class="text-center">{{ item.title.value }}</td>
-                    <td class="text-center">{{ item.quantity.value|number_format(0, '.', ',') }}</td>
-                    <td class="text-center">{{ item.remarks is defined ? item.remarks : '-' }}</td>
-                  </tr>
-                {% endfor %}
-              {% else %}
-                <tr>
-                  <td colspan="4" class="text-center">{{ "No items found." | t }}</td>
-                </tr>
-              {% endif %}
-            </tbody>
-          </table>
-        </div>
+			.note-box {
+				background: #f0f0f0;
+				padding: 10px;
+				margin: 15px 0;
+				border-left: 4px solid #007bff;
+			}
 
-        {# Signature Section #}
-        <div class="signature-section">
-          <div class="row gy-3 mt-4">
-            <div class="col">
-              <strong>{{ "Received By :" | t }}</strong><br>
-              <span>{{ data.receiver_name ?? '__________________________' }}</span>
-            </div>
-            <div class="col text-right">
-              <strong>{{ "Signature & Date :" | t }}</strong><br>
-              <span>__________________________</span>
-            </div>
-          </div>
-        </div>
+			table.items-table {
+				width: 100%;
+				border-collapse: collapse;
+				margin-top: 10px;
+			}
 
-      </div>
-    </section>
-  </body>
+			table.items-table th,
+			table.items-table td {
+				border: 1px solid #444;
+				padding: 6px 5px;
+				text-align: center;
+			}
+
+			table.items-table tr td:first-child {
+				border: 1px solid #444;
+			}
+
+			table.items-table th {
+				background: #6f6f6f;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+
+	<body class="table-body">
+		<div class="table-wrapper" id="print-slip-wrapper">
+			<table class="header-table">
+				<tr>
+					<td>
+						<img src="{{ data.logo }}" width="140">
+					</td>
+					<td class="header-title">
+						{{ "Delivery Slip"|t }}
+						<br>
+						<small>{{ "(For Recipient)"|t }}</small>
+					</td>
+				</tr>
+			</table>
+			{% set data = data.data %}
+			<table class="info-table">
+				<tr>
+					<td width="50%">
+						<strong>{{ "Dispatched By :"|t }}</strong><br>
+						{{ data.sender_info.name }}<br>
+						{{ data.sender_info.address }}<br>
+						{% if data.sender_info.contact %}
+							<strong>{{ "Contact :"|t }}</strong>
+							{{ data.sender_info.contact }}
+						{% endif %}
+					</td>
+
+					<td width="50%">
+						<strong>{{ "Shipping Address :"|t }}</strong><br>
+						{{ data.billing_info.name }}<br>
+						{{ data.billing_info.address }}<br>
+						{% if data.billing_info.contact %}
+							<strong>{{ "Contact :"|t }}</strong>
+							{{ data.billing_info.contact }}
+						{% endif %}
+					</td>
+				</tr>
+			</table>
+
+			<table class="info-table">
+				{% set today = "now"|date("Y-m-d") %}
+				<tr>
+					<td width="50%">
+						<strong>{{ "Order Number :"|t }}</strong>
+						{{ data.order_id }}<br>
+						<strong>{{ "Order Date :"|t }}</strong>
+						{{ data.completed_time|date("Y-m-d") }}<br>
+						<strong>{{ "Delivery Slip No :"|t }}</strong>
+						{{ data.delivery_slip.slip_number }}<br>
+						<strong>{{ "Delivery Date :"|t }}</strong>
+						{{ today }}
+					</td>
+
+					<td width="50%">
+						<strong>{{ "Courier / Transport :"|t }}</strong>
+						{{ data.delivery_slip.transport_name }}<br>
+						<strong>{{ "Tracking ID :"|t }}</strong>
+						{{ data.delivery_slip.tracking_id }}<br>
+						<strong>{{ "Dispatch Mode :"|t }}</strong>
+						{{ data.delivery_slip.dispatch_mode }}
+					</td>
+				</tr>
+			</table>
+			<table class="items-table">
+				<thead>
+					<tr>
+						<th>{{ "Sl. No"|t }}</th>
+						<th>{{ "Description"|t }}</th>
+						<th>{{ "Qty"|t }}</th>
+						<th>{{ "Remarks"|t }}</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% if data.order %}
+						{% for item in data.order %}
+							<tr>
+								<td>{{ loop.index }}</td>
+								<td style="text-align: left;">{{ item.title.value }}</td>
+								<td>{{ item.quantity.value|number_format(0,'.',',') }}</td>
+								<td>{{ item.remarks is defined ? item.remarks : '-' }}</td>
+							</tr>
+						{% endfor %}
+					{% else %}
+						<tr>
+							<td colspan="4">{{ "No items found."|t }}</td>
+						</tr>
+					{% endif %}
+				</tbody>
+			</table>
+
+			<div class="note-box">
+				{{ "Goods mentioned below are delivered in good condition. Please verify and acknowledge the receipt."|t }}
+			</div>
+		</div>
+
+	</body>
 </html>
