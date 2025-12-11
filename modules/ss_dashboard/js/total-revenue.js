@@ -1,30 +1,31 @@
 (function (Drupal, drupalSettings, once) {
-  Drupal.behaviors.totalOrdersApexChart = {
+  Drupal.behaviors.totalRevenueChart = {
     attach: function (context, settings) {
 
-      // Ensure chart renders only once.
-      const chartEl = document.querySelector('#orders-chart');
+      if (typeof ApexCharts === "undefined") {
+        console.error("ApexCharts not loaded");
+        return;
+      }
+
+      const chartEl = document.querySelector('#revenue-chart');
       if (!chartEl || chartEl.dataset.rendered === "true") return;
 
       chartEl.dataset.rendered = "true";
 
-      // Safely read settings
-      const dashboardSettings = drupalSettings.totalOrders || {};
-      const ordersData = dashboardSettings.ordersData || [];
-      const labels = dashboardSettings.labels || [];
-
-      if (!ordersData.length) return;
+      const data = drupalSettings.totalRevenueData;
+      const labels = data.labels || [];
+      const values = data.monthlyRevenue || [];
 
       const options = {
         chart: {
           type: "area",
           height: 150,
-          sparkline: { enabled: false }  // Show x-axis
+          sparkline: { enabled: false }
         },
         stroke: {
           curve: "smooth",
           width: 3,
-          colors: ["#2341e9ff"]
+          colors: ["#f00000"]
         },
         fill: {
           type: "gradient",
@@ -36,8 +37,8 @@
         },
         series: [
           {
-            name: 'Orders',
-            data: ordersData
+            name: 'Revenue',
+            data: values
           }
         ],
         xaxis: {

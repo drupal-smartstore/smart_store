@@ -1,13 +1,12 @@
 (function (Drupal, drupalSettings) {
     Drupal.behaviors.salesChart = {
-        attach: function (context) {
+        attach: function (context, settings) {
 
-            const settings = drupalSettings.totalSalesData || {};
+            const data = drupalSettings.totalSalesData || {};
+            const salesData = data.salesData || [];
+            const labels = data.labels || [];
 
-            const data = settings.salesData || [];
-            const labels = settings.labels || [];
-
-            if (!data.length) return;
+            if (!salesData.length) return;
 
             const chartEl = document.querySelector("#sales-chart");
             if (!chartEl || chartEl.dataset.rendered === "true") return;
@@ -36,7 +35,7 @@
                 series: [
                     {
                         name: "Monthly Sales",
-                        data: data   // Monthly sales numbers
+                        data: salesData   // Monthly sales numbers
                     }
                 ],
                 xaxis: {

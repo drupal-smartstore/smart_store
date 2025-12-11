@@ -16,6 +16,12 @@ function ss_dashboard_theme() {
       ],
       'template' => 'sales-chart-block',
     ],
+    'total_revenue_block' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+      'template' => 'total-revenue-block',
+    ],
     'total_orders_block' => [
       'variables' => [
         'content' => NULL,
@@ -27,6 +33,12 @@ function ss_dashboard_theme() {
         'content' => NULL,
       ],
       'template' => 'total-users-chart',
+    ],
+    'earnings_widget_block' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+      'template' => 'earnings-widget-block',
     ],
   ];
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\ss_dashboard\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
@@ -10,14 +12,15 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Provides a "Total Orders Chart" block.
  *
- * Displays last 8 months' completed orders data in a chart.
+ * Displays the total number of completed Commerce orders over the last
+ * 6 months, along with percentage growth comparison.
  *
  * @Block(
  *   id = "total_orders_chart_block",
  *   admin_label = @Translation("Total Orders Chart Block")
  * )
  */
-class TotalOrdersBlock extends BlockBase implements ContainerFactoryPluginInterface {
+final class TotalOrdersBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * The entity type manager service.
@@ -56,67 +59,63 @@ class TotalOrdersBlock extends BlockBase implements ContainerFactoryPluginInterf
     array $configuration,
     $plugin_id,
     $plugin_definition,
-  ) {
+  ): self {
     return new static(
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('entity_type.manager'),
+      $container->get('entity_type.manager')
     );
   }
 
   /**
    * {@inheritdoc}
    *
-   * Builds a formatted chart block showing last 8 months of completed orders.
+   * Builds the chart block showing completed orders in the last 6 months.
    */
   public function build(): array {
+    $storage = $this->entityTypeManager->getStorage('commerce_order');
+
     $labels = [];
-    $orders_data = [];
+    $ordersData = [];
 
-    // Loop through last 6 months.
+    // Generate last 6 months (including current month).
     for ($i = 5; $i >= 0; $i--) {
-      $month_name = date('M', strtotime("-$i months"));
-      $labels[] = $month_name;
+      $labels[] = date('M', strtotime("-{$i} months"));
 
-      // Calculate first and last timestamps of the month.
-      $start = strtotime("first day of -$i months 00:00:00");
-      $end = strtotime("last day of -$i months 23:59:59");
+      $start = strtotime("first day of -{$i} months 00:00:00");
+      $end = strtotime("last day of -{$i} months 23:59:59");
 
-      // Query completed orders within the month.
-      $query = $this->entityTypeManager->getStorage('commerce_order')->getQuery();
-      $query->condition('state', 'completed')
+      $query = $storage->getQuery()
+        ->condition('state', 'completed')
         ->condition('completed', $start, '>=')
         ->condition('completed', $end, '<=')
         ->accessCheck(FALSE);
 
-      $order_ids = $query->execute();
-      $orders_count = count($order_ids);
-
-      $orders_data[] = $orders_count;
+      $orderIds = $query->execute();
+      $ordersData[] = count($orderIds);
     }
 
-    $totalOrders = array_sum($orders_data);
+    $totalOrders = array_sum($ordersData);
 
-    // Calculate month-to-month percentage increase.
-    $last_month = $orders_data[6] ?? 0;
-    $this_month = $orders_data[7] ?? 0;
-    $percentage_increase = ($last_month > 0)
-      ? round((($this_month - $last_month) / $last_month) * 100, 2)
-      : 0;
+    // Calculate percentage growth (last month vs this month).
+    $trend = $this->calculatePercentageTrend($ordersData);
 
-    // dd($labels, $orders_data, $percentage_increase, $this_month);.
     return [
       '#theme' => 'total_orders_block',
       '#content' => [
         'totalOrders' => $totalOrders,
-        'percentageIncrease' => $percentage_increase,
+        'percentageIncrease' => $trend['formatted'],
+        'class' => $trend['class'],
       ],
       '#attached' => [
-        'library' => ['ss_dashboard/ss_dashboard.order_stats'],
+        'library' => [
+          'ss_dashboard/ss_dashboard.apexcharts',
+          'ss_dashboard/ss_dashboard.order_stats',
+        ],
         'drupalSettings' => [
           'totalOrders' => [
-            'ordersData' => $orders_data,
+            'ordersData' => $ordersData,
             'labels' => $labels,
           ],
         ],
@@ -124,6 +123,60 @@ class TotalOrdersBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#cache' => [
         'tags' => ['commerce_order_list'],
       ],
+    ];
+  }
+
+  /**
+   * Calculates the trend percentage between the last two months.
+   *
+   * @param array<int, int> $ordersData
+   *   List of completed order counts.
+   *
+   * @return array
+   *   Contains:
+   *   - percentage (float)
+   *   - arrow (string)
+   *   - formatted (string) "▲ 12%" etc.
+   */
+  private function calculatePercentageTrend(array $ordersData): array {
+    $count = count($ordersData);
+
+    if ($count < 2) {
+      return [
+        'percentage' => 0.0,
+        'arrow' => '=',
+        'formatted' => '= 0%',
+        'class' => 'equal',
+
+      ];
+    }
+
+    $lastMonth = $ordersData[$count - 2];
+    $thisMonth = $ordersData[$count - 1];
+
+    if ($lastMonth <= 0) {
+      return [
+        'percentage' => 0.0,
+        'arrow' => '=',
+        'formatted' => '= 0%',
+        'class' => 'equal',
+
+      ];
+    }
+
+    $percentage = round((($thisMonth - $lastMonth) / $lastMonth) * 100, 2);
+
+    $arrow = match (TRUE) {
+      $percentage > 0 => '▲',
+      $percentage < 0 => '▼',
+      default => '=',
+    };
+
+    return [
+      'percentage' => $percentage,
+      'arrow' => $arrow,
+      'formatted' => "{$arrow} " . abs($percentage) . "%",
+      'class' => $percentage > 0 ? 'increase' : ($percentage < 0 ? 'decrease' : 'equal'),
     ];
   }
 

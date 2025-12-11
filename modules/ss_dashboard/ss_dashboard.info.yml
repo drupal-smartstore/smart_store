@@ -5,4 +5,4 @@ core_version_requirement: ^10
 dependencies:
   - commerce:commerce_order
 libraries:
-  - ss_dashboard/ss_dashboard.global_js
+  - ss_dashboard/ss_dashboard.apexcharts

@@ -5,19 +5,20 @@ declare(strict_types=1);
 namespace Drupal\ss_dashboard\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a "Commerce Sales Chart" block.
+ * Provides a "Total Revenue" block for Commerce orders.
  *
  * @Block(
- *   id = "commerce_sales_chart_block",
- *   admin_label = @Translation("Commerce Sales Chart Block")
+ *   id = "total_revenue_block",
+ *   admin_label = @Translation("Total Revenue Block"),
+ *   category = @Translation("Custom"),
  * )
  */
-final class SalesChartBlock extends BlockBase implements ContainerFactoryPluginInterface {
+final class TotalRevenueBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * The entity type manager service.
@@ -27,16 +28,16 @@ final class SalesChartBlock extends BlockBase implements ContainerFactoryPluginI
   protected EntityTypeManagerInterface $entityTypeManager;
 
   /**
-   * Constructs a SalesChartBlock instance.
+   * Constructs a new TotalRevenueBlock instance.
    *
    * @param array $configuration
-   *   Plugin configuration array.
+   *   Plugin configuration.
    * @param string $plugin_id
    *   Plugin ID.
    * @param mixed $plugin_definition
-   *   The plugin implementation definition.
+   *   Plugin definition.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-   *   Entity type manager.
+   *   The entity type manager.
    */
   public function __construct(
     array $configuration,
@@ -70,19 +71,17 @@ final class SalesChartBlock extends BlockBase implements ContainerFactoryPluginI
    */
   public function build(): array {
     $storage = $this->entityTypeManager->getStorage('commerce_order');
+    $labels = [];
+    $monthly_revenue = [];
 
-    $salesData = [];
-    $monthLabels = [];
-
-    // Generate last 6 months including current month.
     for ($i = 5; $i >= 0; $i--) {
-      $monthLabels[] = date('M', strtotime("-{$i} months"));
+      $labels[] = date('M', strtotime("-{$i} months"));
 
       $start = strtotime("first day of -{$i} months 00:00:00");
       $end = strtotime("last day of -{$i} months 23:59:59");
 
       $query = $storage->getQuery()
-        ->condition('state', 'completed')
+        ->condition('state', ['completed', 'fulfilled'], 'IN')
         ->condition('completed', $start, '>=')
         ->condition('completed', $end, '<=')
         ->accessCheck(FALSE);
@@ -92,33 +91,30 @@ final class SalesChartBlock extends BlockBase implements ContainerFactoryPluginI
 
       $total = 0;
       foreach ($orders as $order) {
-        if ($order->getTotalPrice()) {
-          $total += (float) $order->getTotalPrice()->getNumber();
-        }
+        $total += (float) $order->getTotalPrice()->getNumber();
       }
 
-      $salesData[] = round($total);
+      $monthly_revenue[] = round($total);
     }
 
-    $totalSales = array_sum($salesData);
-    $percentageData = $this->calculateTrend($salesData);
-
+    $total_revenue = array_sum($monthly_revenue);
+    $percentage_change = $this->calculatePercentageChange($monthly_revenue);
     return [
-      '#theme' => 'sales_chart_block',
+      '#theme' => 'total_revenue_block',
       '#content' => [
-        'total_sales' => $totalSales,
-        'percentage_change' => $percentageData['text'],
-        'class' => $percentageData['class'],
+        'total_revenue' => $total_revenue,
+        'percentage_change' => $percentage_change['formatted'],
+        'class' => $percentage_change['class'],
       ],
       '#attached' => [
         'library' => [
           'ss_dashboard/ss_dashboard.apexcharts',
-          'ss_dashboard/ss_dashboard.sales_chart',
+          'ss_dashboard/ss_dashboard.total_revenue',
         ],
         'drupalSettings' => [
-          'totalSalesData' => [
-            'salesData' => $salesData,
-            'labels' => $monthLabels,
+          'totalRevenueData' => [
+            'monthlyRevenue' => $monthly_revenue,
+            'labels' => $labels,
           ],
         ],
       ],
@@ -129,57 +125,60 @@ final class SalesChartBlock extends BlockBase implements ContainerFactoryPluginI
   }
 
   /**
-   * Calculates percentage trend and arrow indicator based on last 2 months.
+   * Calculates the percentage change between the last two months.
    *
-   * @param array<int, float> $salesData
-   *   Sales amounts for last 6 months.
+   * @param array<string, float> $monthly_revenue
+   *   Revenue grouped by month.
    *
    * @return array
-   *   Contains:
-   *   - percentage: float
-   *   - arrow: string
-   *   - text: string
+   *   Returns an array containing:
+   *   - 'percentage' (float): The percentage change.
+   *   - 'symbol' (string): ↑ for increase, ↓ for decrease, = for no change.
    */
-  private function calculateTrend(array $salesData): array {
-    $count = count($salesData);
+  private function calculatePercentageChange(array $monthly_revenue): array {
+    $months = array_keys($monthly_revenue);
+    $count = count($months);
+    $percentage = 0.0;
+    $symbol = '=';
 
+    // Not enough data to calculate.
     if ($count < 2) {
       return [
         'percentage' => 0.0,
-        'arrow' => '=',
-        'text' => '= 0%',
+        'symbol' => '=',
+        'formatted' => '= 0%',
         'class' => 'equal',
       ];
     }
 
-    $lastMonth = $salesData[$count - 2] ?? 0;
-    $thisMonth = $salesData[$count - 1] ?? 0;
+    $last_month = $months[$count - 1];
+    $prev_month = $months[$count - 2];
 
-    if ($lastMonth <= 0) {
+    $last_value = $monthly_revenue[$last_month];
+    $prev_value = $monthly_revenue[$prev_month];
+
+    if ($prev_value <= 0) {
       return [
         'percentage' => 0.0,
-        'arrow' => '=',
-        'text' => '= 0%',
+        'symbol' => '=',
+        'formatted' => '= 0%',
         'class' => 'equal',
       ];
     }
 
-    $diff = $thisMonth - $lastMonth;
-    $percentage = round(($diff / $lastMonth) * 100, 2);
+    $percentage = round((($last_value - $prev_value) / $prev_value) * 100, 2);
 
-    // Determine arrow symbol.
-    $arrow = match (TRUE) {
+    // Determine the trend symbol.
+    $symbol = match (TRUE) {
       $percentage > 0 => '▲',
       $percentage < 0 => '▼',
       default => '=',
     };
 
-    $displayPercent = abs($percentage);
-
     return [
       'percentage' => $percentage,
-      'arrow' => $arrow,
-      'text' => "{$arrow} {$displayPercent}%",
+      'symbol' => $symbol,
+      'formatted' => "{$symbol} " . abs($percentage) . "%",
       'class' => $percentage > 0 ? 'increase' : ($percentage < 0 ? 'decrease' : 'equal'),
     ];
   }
