@@ -31,5 +31,6 @@ function ss_invoice_theme() {
         'data' => NULL,
       ],
     ],
+
   ];
 }

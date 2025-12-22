@@ -1,0 +1,52 @@
+ss_dashboard.apexcharts:
+  js:
+    https://cdn.jsdelivr.net/npm/apexcharts/dist/apexcharts.min.js:
+      { type: external, minified: true }
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+ss_dashboard.sales_chart:
+  js:
+    js/sales-chart.js: {}
+  dependencies:
+    - ss_dashboard/apexcharts
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+
+ss_dashboard.order_stats:
+  js:
+    js/total-orders.js: {}
+  dependencies:
+    - ss_dashboard/apexcharts
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+
+ss_dashboard.total_revenue:
+  js:
+    js/total-revenue.js: {}
+  dependencies:
+    - ss_dashboard/apexcharts
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+
+ss_dashboard.total_users:
+  js:
+    js/total-users.js: {}
+  dependencies:
+    - ss_dashboard/apexcharts
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+
+ss_dashboard.earnings_widget:
+  js:
+    js/earnings-widget.js: {}
+  dependencies:
+    - ss_dashboard/apexcharts
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
