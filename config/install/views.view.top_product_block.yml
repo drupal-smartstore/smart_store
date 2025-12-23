@@ -37,7 +37,7 @@ display:
           entity_type: commerce_order_item
           entity_field: quantity
           plugin_id: field
-          label: ""
+          label: Quantity
           exclude: false
           alter:
             alter_text: false
@@ -110,7 +110,7 @@ display:
           group_type: group
           admin_label: ""
           plugin_id: field
-          label: ""
+          label: Image
           exclude: false
           alter:
             alter_text: false
@@ -178,7 +178,7 @@ display:
           entity_type: commerce_product
           entity_field: title
           plugin_id: field
-          label: ""
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -233,17 +233,17 @@ display:
           multi_type: separator
           separator: ", "
           field_api_classes: false
-        created:
-          id: created
-          table: commerce_order_item
-          field: created
-          relationship: none
+        placed:
+          id: placed
+          table: commerce_order
+          field: placed
+          relationship: order_id
           group_type: group
           admin_label: ""
-          entity_type: commerce_order_item
-          entity_field: created
+          entity_type: commerce_order
+          entity_field: placed
           plugin_id: field
-          label: ""
+          label: Placed
           exclude: false
           alter:
             alter_text: false
@@ -276,7 +276,7 @@ display:
           element_class: ""
           element_label_type: ""
           element_label_class: ""
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ""
           element_wrapper_class: ""
           element_default_classes: true
@@ -320,7 +320,7 @@ display:
           entity_type: commerce_order
           entity_field: state
           plugin_id: field
-          label: ""
+          label: Status
           exclude: false
           alter:
             alter_text: false
@@ -545,7 +545,60 @@ display:
             default_group_multiple: {}
             group_items: {}
       style:
-        type: default
+        type: table
+        options:
+          grouping: {}
+          row_class: ""
+          default_row_class: true
+          columns:
+            quantity: quantity
+            field_image: field_image
+            title_1: title_1
+            created: created
+            state: state
+          default: "-1"
+          info:
+            quantity:
+              sortable: false
+              default_sort_order: asc
+              align: ""
+              separator: ""
+              empty_column: false
+              responsive: ""
+            field_image:
+              sortable: false
+              default_sort_order: asc
+              align: ""
+              separator: ""
+              empty_column: false
+              responsive: ""
+            title_1:
+              sortable: false
+              default_sort_order: asc
+              align: ""
+              separator: ""
+              empty_column: false
+              responsive: ""
+            created:
+              sortable: false
+              default_sort_order: asc
+              align: ""
+              separator: ""
+              empty_column: false
+              responsive: ""
+            state:
+              sortable: false
+              default_sort_order: asc
+              align: ""
+              separator: ""
+              empty_column: false
+              responsive: ""
+          override: true
+          sticky: false
+          summary: ""
+          empty_table: false
+          caption: ""
+          description: ""
       row:
         type: fields
       query:
