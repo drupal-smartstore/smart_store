@@ -643,6 +643,7 @@ display:
           plugin_id: standard
           required: true
       group_by: true
+      use_ajax: true
       header: {}
       footer: {}
       display_extenders: {}

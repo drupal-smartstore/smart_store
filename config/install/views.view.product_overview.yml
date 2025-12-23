@@ -528,6 +528,7 @@ display:
           entity_field: variations
           plugin_id: standard
           required: true
+      use_ajax: true
       header: {}
       footer: {}
       display_extenders: {}
