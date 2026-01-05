@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace Drupal\ss_dashboard\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a "Total Users Chart" block.
+ * Provides a "Total Users Chart" dashboard block.
  *
- * Displays total active users and new user counts for the past
- * 6 months with percentage increase or decrease.
+ * Displays:
+ * - Total active users
+ * - Monthly new user registrations (last 6 months)
+ * - Net user base growth percentage (MoM)
  *
  * @Block(
  *   id = "total_users_chart_block",
@@ -24,42 +25,31 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 final class TotalUsersBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
-   * The database connection.
-   *
-   * @var \Drupal\Core\Database\Connection
-   */
-  protected Connection $database;
-
-  /**
-   * The entity type manager.
+   * Entity type manager service.
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected EntityTypeManagerInterface $entityTypeManager;
 
   /**
-   * Constructs a TotalUsersBlock instance.
+   * Constructs the TotalUsersBlock.
    *
    * @param array $configuration
-   *   Plugin configuration values.
+   *   Plugin configuration.
    * @param string $plugin_id
    *   Plugin ID.
    * @param mixed $plugin_definition
    *   Plugin definition.
-   * @param \Drupal\Core\Database\Connection $database
-   *   Database connection.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
-   *   Entity Type Manager.
+   *   Entity type manager service.
    */
   public function __construct(
     array $configuration,
     string $plugin_id,
     $plugin_definition,
-    Connection $database,
     EntityTypeManagerInterface $entityTypeManager,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->database = $database;
     $this->entityTypeManager = $entityTypeManager;
   }
 
@@ -76,8 +66,7 @@ final class TotalUsersBlock extends BlockBase implements ContainerFactoryPluginI
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('database'),
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
     );
   }
 
@@ -85,13 +74,19 @@ final class TotalUsersBlock extends BlockBase implements ContainerFactoryPluginI
    * {@inheritdoc}
    */
   public function build(): array {
-    $totalUsers = $this->getTotalUsers();
-    $monthlyUsers = $this->getNewUsersPerMonth();
+    // Current total active users.
+    $totalUsers = $this->getTotalActiveUsers();
 
-    $labels = array_column($monthlyUsers, 'month');
-    $values = array_column($monthlyUsers, 'new_users');
+    // Monthly new users (chart data).
+    $newUsersData = $this->getMonthlyNewUsers();
 
-    $percentageTrend = $this->calculatePercentageTrend($values);
+    // Cumulative active users per month (growth calculation).
+    $totalUsersByMonth = $this->getTotalActiveUsersByMonth();
+
+    // Percentage trend based on total active user growth.
+    $percentageTrend = $this->calculatePercentageTrend(
+      $totalUsersByMonth['totals']
+    );
 
     return [
       '#theme' => 'total_users_chart',
@@ -107,24 +102,26 @@ final class TotalUsersBlock extends BlockBase implements ContainerFactoryPluginI
         ],
         'drupalSettings' => [
           'totalUsersData' => [
-            'labels' => $labels,
-            'usersData' => $values,
+            'labels' => $newUsersData['labels'],
+            'usersData' => $newUsersData['users'],
+            'totalUsers' => $totalUsersByMonth['totals'],
           ],
         ],
       ],
       '#cache' => [
         'tags' => ['user_list'],
+        'contexts' => ['user.permissions'],
       ],
     ];
   }
 
   /**
-   * Returns total active user count.
+   * Returns the current total number of active users.
    *
    * @return int
    *   Active user count.
    */
-  private function getTotalUsers(): int {
+  private function getTotalActiveUsers(): int {
     return (int) $this->entityTypeManager
       ->getStorage('user')
       ->getQuery()
@@ -135,21 +132,94 @@ final class TotalUsersBlock extends BlockBase implements ContainerFactoryPluginI
   }
 
   /**
-   * Calculates the percentage trend between last two months.
+   * Returns monthly new user registrations for the last 6 months.
+   *
+   * Used for chart visualization.
+   *
+   * @return array
+   *   Array containing:
+   *   - labels: Month labels
+   *   - users: New user counts
+   */
+  private function getMonthlyNewUsers(): array {
+    $labels = [];
+    $users = [];
+    $storage = $this->entityTypeManager->getStorage('user');
+
+    for ($i = 5; $i >= 0; $i--) {
+      $labels[] = date('M', strtotime("-{$i} months"));
+
+      $start = strtotime("first day of -{$i} months 00:00:00");
+      $end = strtotime("last day of -{$i} months 23:59:59");
+
+      $count = $storage->getQuery()
+        ->condition('created', $start, '>=')
+        ->condition('created', $end, '<=')
+        ->accessCheck(FALSE)
+        ->count()
+        ->execute();
+
+      $users[] = (int) $count;
+    }
+
+    return [
+      'labels' => $labels,
+      'users' => $users,
+    ];
+  }
+
+  /**
+   * Returns cumulative total active users at the end of each month.
+   *
+   * Used for net user base growth calculation.
+   *
+   * @return array
+   *   Array containing:
+   *   - labels: Month labels
+   *   - totals: Cumulative active user totals
+   */
+  private function getTotalActiveUsersByMonth(): array {
+    $labels = [];
+    $totals = [];
+    $storage = $this->entityTypeManager->getStorage('user');
+
+    for ($i = 5; $i >= 0; $i--) {
+      $labels[] = date('M', strtotime("-{$i} months"));
+      $end = strtotime("last day of -{$i} months 23:59:59");
+
+      $total = $storage->getQuery()
+        ->condition('status', 1)
+        ->condition('created', $end, '<=')
+        ->accessCheck(FALSE)
+        ->count()
+        ->execute();
+
+      $totals[] = (int) $total;
+    }
+
+    return [
+      'labels' => $labels,
+      'totals' => $totals,
+    ];
+  }
+
+  /**
+   * Calculates percentage growth trend between last two values.
    *
    * @param array<int, int> $values
-   *   Numeric user counts.
+   *   Numeric dataset (chronological).
    *
    * @return array
    *   Contains:
    *   - percentage: float
-   *   - arrow: string (▲, ▼, =)
-   *   - formatted: string "▲ 25%"
+   *   - arrow: string
+   *   - formatted: string
+   *   - class: string
    */
   private function calculatePercentageTrend(array $values): array {
     $count = count($values);
 
-    if ($count < 2) {
+    if ($count < 2 || $values[$count - 2] <= 0) {
       return [
         'percentage' => 0.0,
         'arrow' => '=',
@@ -160,15 +230,6 @@ final class TotalUsersBlock extends BlockBase implements ContainerFactoryPluginI
 
     $previous = $values[$count - 2];
     $current = $values[$count - 1];
-
-    if ($previous <= 0) {
-      return [
-        'percentage' => 0.0,
-        'arrow' => '=',
-        'formatted' => '= 0%',
-        'class' => 'equal',
-      ];
-    }
 
     $percentage = round((($current - $previous) / $previous) * 100, 2);
 
@@ -181,37 +242,9 @@ final class TotalUsersBlock extends BlockBase implements ContainerFactoryPluginI
     return [
       'percentage' => $percentage,
       'arrow' => $arrow,
-      'formatted' => "{$arrow} " . abs($percentage) . "%",
+      'formatted' => "{$arrow} " . abs($percentage) . '%',
       'class' => $percentage > 0 ? 'increase' : ($percentage < 0 ? 'decrease' : 'equal'),
     ];
-  }
-
-  /**
-   * Returns new active user count per month for the past 6 months.
-   *
-   * @return array<int, array<string, mixed>>
-   *   Each row contains:
-   *   - month: string (e.g., "Jan 2025")
-   *   - new_users: int
-   */
-  private function getNewUsersPerMonth(): array {
-    $startTimestamp = strtotime('-6 months');
-    $startMonth = strtotime(date('Y-m-01', $startTimestamp));
-
-    $query = $this->database->select('users_field_data', 'u');
-
-    $query->addExpression("DATE_FORMAT(FROM_UNIXTIME(u.created), '%b %Y')", 'month');
-    $query->addExpression('COUNT(u.uid)', 'new_users');
-
-    $query->condition('u.status', 1);
-    $query->condition('u.created', $startMonth, '>=');
-
-    $query->groupBy('month');
-
-    // Fix ONLY_FULL_GROUP_BY error: Order by grouped column.
-    $query->orderBy('month', 'ASC');
-
-    return $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
   }
 
 }

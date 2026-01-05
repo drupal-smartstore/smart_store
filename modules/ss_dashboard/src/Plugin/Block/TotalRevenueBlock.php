@@ -127,21 +127,20 @@ final class TotalRevenueBlock extends BlockBase implements ContainerFactoryPlugi
   /**
    * Calculates the percentage change between the last two months.
    *
-   * @param array<string, float> $monthly_revenue
-   *   Revenue grouped by month.
+   * @param array<int, float> $monthly_revenue
+   *   Monthly revenue values in chronological order.
    *
    * @return array
    *   Returns an array containing:
-   *   - 'percentage' (float): The percentage change.
-   *   - 'symbol' (string): ↑ for increase, ↓ for decrease, = for no change.
+   *   - percentage: float
+   *   - symbol: string
+   *   - formatted: string
+   *   - class: string
    */
   private function calculatePercentageChange(array $monthly_revenue): array {
-    $months = array_keys($monthly_revenue);
-    $count = count($months);
-    $percentage = 0.0;
-    $symbol = '=';
+    $count = count($monthly_revenue);
 
-    // Not enough data to calculate.
+    // Not enough data to calculate a trend.
     if ($count < 2) {
       return [
         'percentage' => 0.0,
@@ -151,13 +150,11 @@ final class TotalRevenueBlock extends BlockBase implements ContainerFactoryPlugi
       ];
     }
 
-    $last_month = $months[$count - 1];
-    $prev_month = $months[$count - 2];
+    $previous = $monthly_revenue[$count - 2];
+    $current = $monthly_revenue[$count - 1];
 
-    $last_value = $monthly_revenue[$last_month];
-    $prev_value = $monthly_revenue[$prev_month];
-
-    if ($prev_value <= 0) {
+    // Prevent division by zero.
+    if ($previous <= 0) {
       return [
         'percentage' => 0.0,
         'symbol' => '=',
@@ -166,9 +163,8 @@ final class TotalRevenueBlock extends BlockBase implements ContainerFactoryPlugi
       ];
     }
 
-    $percentage = round((($last_value - $prev_value) / $prev_value) * 100, 2);
+    $percentage = round((($current - $previous) / $previous) * 100, 2);
 
-    // Determine the trend symbol.
     $symbol = match (TRUE) {
       $percentage > 0 => '▲',
       $percentage < 0 => '▼',
@@ -178,7 +174,7 @@ final class TotalRevenueBlock extends BlockBase implements ContainerFactoryPlugi
     return [
       'percentage' => $percentage,
       'symbol' => $symbol,
-      'formatted' => "{$symbol} " . abs($percentage) . "%",
+      'formatted' => "{$symbol} " . abs($percentage) . '%',
       'class' => $percentage > 0 ? 'increase' : ($percentage < 0 ? 'decrease' : 'equal'),
     ];
   }
