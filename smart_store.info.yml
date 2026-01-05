@@ -25,7 +25,7 @@ dependencies:
   - commerce_store
   - commerce_payment
   - commerce_promotion
-
+  - commerce_stock
   # Contrib
 
 # Module installed during profile install, but can be uninstalled later.

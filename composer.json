@@ -41,6 +41,7 @@
         "drupal/facets_pretty_paths": "^2.0",
         "drupal/commerce_wishlist": "^3.0@beta",
         "drupal/commerce_shipping": "^2.15",
+        "drupal/commerce_stock": "^3.0",
         "drupal/simplenews": "^4.1",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/commerce_combine_carts": "^1.1",
