@@ -10,27 +10,24 @@
 			{{ drupal_block('total_orders_chart_block') }}
 		</div>
 		<div id="visitor-chart-block" class="cmn">
-		{{ drupal_block('total_users_chart_block') }}
-
+			{{ drupal_block('total_users_chart_block') }}
 		</div>
 	</div>
 	<div class="record-sec2 mb-30">
-		<div id="recent-order-chart-block">
-			{{ drupal_entity('block_content', '9f562712-91d1-4dcb-9591-35397f6fd991') }}
-		</div>
 		<div id="product-overview-block">
-			{{ drupal_entity('block_content', 'bb2454f7-044a-40d0-8d4c-5ad94ee768d1') }}
-		</div>
-	</div>
-	<div class="record-sec3">
-		<div id="orders-block">
-			{{ drupal_entity('block_content', 'a904369b-f04b-4a08-af41-e7f9266e2096') }}
-		</div>
-		<div id="top-products-block">
-			{{ drupal_entity('block_content', '050def44-6afd-48c6-ad2b-480e3d4fb758') }}
+			{{ drupal_block('views_block:product_overview-block_1') }}
 		</div>
 		<div id="earnings-block">
 			{{ drupal_block('earnings_widget_block') }}
 		</div>
+	</div>
+	<div class="record-sec3">
+		<div id="top-products-block">
+			{{ drupal_block('views_block:orders_block-block_1') }}
+		</div>
+		<div id="orders-block">
+			{{ drupal_block('views_block:top_product_block-block_1') }}
+		</div>
+		
 	</div>
 </div>
