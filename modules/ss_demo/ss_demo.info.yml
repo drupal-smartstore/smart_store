@@ -1,8 +1,8 @@
-name: 'Smart Store Demo'
+name: "Smart Store Demo"
 type: module
-description: 'Provides a demo content for smart Store.'
+description: "Provides a demo content for smart Store."
 core_version_requirement: ^10
 dependencies:
-  - 'default_content:default_content'
-  - 'search_api:search_api'
-  - 'search_api:search_api_db'
+  - "default_content:default_content"
+  - "search_api:search_api"
+  - "search_api:search_api_db"

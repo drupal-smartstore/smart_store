@@ -1,0 +1,98 @@
+<?php
+
+/**
+ * @file
+ * Install file for the ss_invoice module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function ss_invoice_schema() {
+  $schema['order_invoice'] = [
+    'description' => 'Stores invoices for commerce orders.',
+    'fields' => [
+      'id' => [
+        'description' => 'Primary Key: Unique invoice record ID.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'invoice_number' => [
+        'description' => 'Human-readable invoice number (e.g., DEL4-12079).',
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+      ],
+      'invoice_details' => [
+        'description' => 'Detailed invoice reference (e.g., HR-DEL4-773408815-2526).',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'order_id' => [
+        'description' => 'The related commerce order ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'user_id' => [
+        'description' => 'The user who placed the order.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'store_code' => [
+        'description' => 'Store/branch code (e.g., DEL4).',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'state_code' => [
+        'description' => 'State/region code (e.g., HR).',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE,
+      ],
+      'order_reference' => [
+        'description' => 'Unique order reference (e.g., 773408815).',
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+      ],
+      'slip_sequence' => [
+        'description' => 'Counter used for packing slip/delivery slip (e.g., 2526).',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'created' => [
+        'description' => 'Unix timestamp when the invoice was created.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+    'unique keys' => [
+      'invoice_number' => ['invoice_number'],
+      'order_invoice_unique' => ['order_id'],
+    ],
+    'indexes' => [
+      'order_id' => ['order_id'],
+      'user_id' => ['user_id'],
+    ],
+    'foreign keys' => [
+      'fk_order_invoice_user' => [
+        'table' => 'users',
+        'columns' => ['user_id' => 'uid'],
+      ],
+      'fk_order_invoice_order' => [
+        'table' => 'commerce_order',
+        'columns' => ['order_id' => 'order_id'],
+      ],
+    ],
+  ];
+
+  return $schema;
+}

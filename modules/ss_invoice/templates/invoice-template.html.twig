@@ -1,0 +1,192 @@
+{# Invoice Template #}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ 'Invoice'|t }}</title>
+
+		<style>
+			.invoice-body {
+				margin: 0;
+				padding: 20px;
+				font-size: 13px;
+				color: #222;
+				background: #fff;
+			}
+
+			.invoice-wrapper {
+				width: 100%;
+				padding: 20px;
+				border: 1px solid #ccc;
+				background: #fff;
+			}
+
+			.header-table {
+				width: 100%;
+				border-bottom: 2px solid #000;
+				margin-bottom: 20px;
+			}
+
+			.header-table td {
+				vertical-align: top;
+				padding: 5px;
+			}
+
+			.invoice-title {
+				text-align: right;
+				font-size: 18px;
+				font-weight: bold;
+			}
+
+			.invoice-title small {
+				font-size: 12px;
+				font-weight: normal;
+			}
+
+			/* Info tables */
+			.info-table {
+				width: 100%;
+				margin-bottom: 15px;
+			}
+
+			.info-table td {
+				vertical-align: top;
+				padding: 5px;
+			}
+
+			/* Note */
+			.invoice-note {
+				background: #f0f0f0;
+				padding: 10px;
+				margin: 15px 0;
+				border-left: 4px solid #007bff;
+				font-size: 13px;
+			}
+
+			table.invoice-table {
+				width: 100%;
+				border-collapse: collapse;
+				margin-top: 10px;
+			}
+
+			table.invoice-table th,
+			table.invoice-table td {
+				border: 1px solid #444;
+				padding: 6px 5px;
+				text-align: center;
+				font-size: 13px;
+			}
+
+			table.invoice-table tr td:first-child {
+				border: 1px solid #444;
+			}
+
+			table.invoice-table th {
+				background: #6f6f6f;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+
+	<body class="invoice-body" style="">
+		<div class="invoice-wrapper" id="print-slip-wrapper">
+			<table class="header-table">
+				<tr>
+					<td>
+						<img src="{{ data.logo }}" width="140" alt="Logo">
+					</td>
+					<td class="invoice-title">
+						{{ "Tax Invoice/Bill of Supply/Cash Memo"|t }}<br>
+						<small>{{ "(Original for Recipient)"|t }}</small>
+					</td>
+				</tr>
+			</table>
+			{% set data = data.data %}
+			<table class="info-table">
+				<tr>
+					<td width="50%">
+						<strong>{{ "Sold By :"|t }}</strong><br>
+						{{ data.sender_info.name }}<br>
+						{{ data.sender_info.address }}<br>
+					</td>
+
+					<td width="50%">
+						<strong>{{ "Billing Address :"|t }}</strong><br>
+						{{ data.billing_info.name }}<br>
+						{{ data.billing_info.address }}<br>
+					</td>
+				</tr>
+			</table>
+
+			<table class="info-table">
+				<tr>
+					<td width="50%">
+						<strong>{{ "Order Number :"|t }}</strong>
+						{{ data.order_id }}<br>
+						<strong>{{ "Order Date :"|t }}</strong>
+						{{ data.completed_time|date("Y-m-d") }}<br>
+					</td>
+
+					<td width="50%">
+						<strong>{{ "Invoice Number :"|t }}</strong>
+						{{ data.invoice.invoice_number }}<br>
+						<strong>{{ "Invoice Details :"|t }}</strong>
+						{{ data.invoice.invoice_details }}<br>
+						{% set today = "now"|date("Y-m-d") %}
+						<strong>{{ "Invoice Date :"|t }}</strong>
+						{{ today }}<br>
+					</td>
+				</tr>
+			</table>
+
+			<div class="invoice-note">
+				{{ "This is a replacement issued free of cost against the original order(s) and invoice(s) listed in detail below."|t }}
+			</div>
+
+			<table class="invoice-table">
+				<thead>
+					<tr>
+						<th>{{ "Sl. No"|t }}</th>
+						<th>{{ "Description"|t }}</th>
+						<th>{{ "Unit Price"|t }}</th>
+						<th>{{ "Qty"|t }}</th>
+						<th>{{ "Amount"|t }}</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% if data.order %}
+						{% for item in data.order %}
+							<tr>
+								<td>{{ loop.index }}</td>
+								<td style="text-align:left;">{{ item.title.value }}</td>
+								<td>{{ item.unit_price.number|number_format(2,'.',',') }}</td>
+								<td>{{ item.quantity.value|number_format(0,'.',',') }}</td>
+								<td>{{ item.total_price.number|number_format(2,'.',',') }}</td>
+							</tr>
+						{% endfor %}
+
+						{% if data.adjustments %}
+							{% for item in data.adjustments %}
+								<tr>
+									<th colspan="4" style="text-align:right;">{{ item.label|t }}</th>
+									<td>{{ item.number|number_format(2,'.',',') }}</td>
+								</tr>
+							{% endfor %}
+						{% endif %}
+
+						<tr>
+							<th colspan="4" style="text-align:right;">{{ "Total Amount"|t }}</th>
+							<td>{{ data.total_price|number_format(2,'.',',') }}</td>
+						</tr>
+
+					{% else %}
+						<tr>
+							<td colspan="5">{{ "No items found."|t }}</td>
+						</tr>
+					{% endif %}
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

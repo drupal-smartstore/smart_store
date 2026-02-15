@@ -1,24 +1,28 @@
 <?php
+
 namespace Drupal\toolbar_always_vertical\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
-use Drupal\Core\Url;
-use Drupal\Component\Utility\Html;
 
+/**
+ *
+ */
 class CustomForm extends FormBase {
 
 
-  // Array to hold default values
+  /**
+   * Array to hold default values.
+   */
   protected $defaultValues;
 
   /**
    * {@inheritdoc}
    */
   public function __construct() {
-    // Define default array key values
+    // Define default array key values.
     $this->defaultValues = [
       'mode' => 'light',
       'menu_style' => 'menu-click',
@@ -97,33 +101,33 @@ class CustomForm extends FormBase {
       ],
     ];
     $form['width_style'] = [
-          '#type' => 'radios',
-          '#title' => $this->t('Layout width style'),
-          '#options' => [
-            'full' => $this->t('Full width'),
-            'boxed' => $this->t('Boxed'),
-          ],
-          '#default_value' => $config->get('width_style') ?: 'full',
-          '#attributes' => [
-            'class' => ['radio-buttons'],
-          ],
-          '#ajax' => [
-            'callback' => '::ajaxCallback',
-            'event' => 'change',
-            'wrapper' => 'ajax-wrapper',
-            'progress' => ['type' => 'throbber'],
-          ],
-        ];
-    $mdoulePath =  \Drupal::service('extension.path.resolver')->getPath('module', 'toolbar_always_vertical');
+      '#type' => 'radios',
+      '#title' => $this->t('Layout width style'),
+      '#options' => [
+        'full' => $this->t('Full width'),
+        'boxed' => $this->t('Boxed'),
+      ],
+      '#default_value' => $config->get('width_style') ?: 'full',
+      '#attributes' => [
+        'class' => ['radio-buttons'],
+      ],
+      '#ajax' => [
+        'callback' => '::ajaxCallback',
+        'event' => 'change',
+        'wrapper' => 'ajax-wrapper',
+        'progress' => ['type' => 'throbber'],
+      ],
+    ];
+    $mdoulePath = \Drupal::service('extension.path.resolver')->getPath('module', 'toolbar_always_vertical');
     $form['bg_image'] = [
       '#type' => 'radios',
       '#title' => $this->t('Menu with background image'),
       '#options' => [
-        'option1' => '<img class="img-1 bg-1" src="/'.$mdoulePath.'/images/img-1.jpg" alt="' . $this->t('Option 1') . '">',
-        'option2' => '<img class="img-1 bg-2" src="/'.$mdoulePath.'/images/img-2.jpg" alt="' . $this->t('Option 2') . '">',
-        'option3' => '<img class="img-1" src="/'.$mdoulePath.'/images/img-3.jpg" alt="' . $this->t('Option 3') . '">',
-        'option4' => '<img class="img-1" src="/'.$mdoulePath.'/images/img-4.jpg" alt="' . $this->t('Option 4') . '">',
-        'option5' => '<img class="img-1" src="/'.$mdoulePath.'/images/img-5.jpg" alt="' . $this->t('Option 5') . '">',
+        'option1' => '<img class="img-1 bg-1" src="/' . $mdoulePath . '/images/img-1.jpg" alt="' . $this->t('Option 1') . '">',
+        'option2' => '<img class="img-1 bg-2" src="/' . $mdoulePath . '/images/img-2.jpg" alt="' . $this->t('Option 2') . '">',
+        'option3' => '<img class="img-1" src="/' . $mdoulePath . '/images/img-3.jpg" alt="' . $this->t('Option 3') . '">',
+        'option4' => '<img class="img-1" src="/' . $mdoulePath . '/images/img-4.jpg" alt="' . $this->t('Option 4') . '">',
+        'option5' => '<img class="img-1" src="/' . $mdoulePath . '/images/img-5.jpg" alt="' . $this->t('Option 5') . '">',
 
       ],
       '#default_value' => $config->get('bg_image') ?: $this->defaultValues['bg_image'],
@@ -139,12 +143,11 @@ class CustomForm extends FormBase {
       '#attached' => [
         'drupalSettings' => [
           'toolbar_always_vertical' => [
-            'ss_theme_setting' => ['settings'=>$config->get(),'default'=>$this->defaultValues],
+            'ss_theme_setting' => ['settings' => $config->get(), 'default' => $this->defaultValues],
           ],
         ],
       ],
     ];
-    // $form['#attached']['drupalSettings']['toolbar_always_vertical']['ss_theme_setting'] = $config->get();
     $form['#prefix'] = '<div id="ajax-wrapper">';
     $form['#suffix'] = '</div>';
 
@@ -154,7 +157,6 @@ class CustomForm extends FormBase {
       '#attributes' => [
         'class' => ['tf-button', 'cursor-pointer', 'w-full', 'ss-setting-reset'],
       ],
-      // '#executes_submit_callback' => FALSE,
       '#limit_validation_errors' => [],
       '#ajax' => [
         'callback' => '::ajaxResetDefault',
@@ -170,13 +172,12 @@ class CustomForm extends FormBase {
     return $form;
   }
 
-   /**
+  /**
    * AJAX callback function.
    */
   public function ajaxResetDefault(array &$form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
     $response->addCommand(new ReplaceCommand('#ajax-wrapper', $form));
-    //$this->configFactory->getEditable('toolbar_always_vertical.settings')->delete();
     $this->configFactory->getEditable('toolbar_always_vertical.settings')
       ->set('mode', $this->defaultValues['mode'])
       ->set('width_style', $this->defaultValues['width_style'])
@@ -184,7 +185,6 @@ class CustomForm extends FormBase {
       ->set('menu_position', $this->defaultValues['menu_position'])
       ->set('bg_image', $this->defaultValues['bg_image'])
       ->save();
-    return $response;
     return $response;
   }
 
@@ -208,6 +208,6 @@ class CustomForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    }
+  }
 
 }

@@ -1,9 +1,9 @@
 name: Smart Store
 type: profile
 core_version_requirement: ^10
-description: 'The fastest way to start building on Drupal Smart Store.'
+description: "The fastest way to start building on Drupal Smart Store."
 distribution:
-  name: 'Smart Store'
+  name: "Smart Store"
   install:
     theme: smart_store_admin
 
@@ -25,14 +25,12 @@ dependencies:
   - commerce_store
   - commerce_payment
   - commerce_promotion
-
+  - commerce_stock
   # Contrib
-
 
 # Module installed during profile install, but can be uninstalled later.
 install:
   # Core
-
   - node
   - history
   - block
@@ -111,6 +109,8 @@ install:
   # Custom
   - toolbar_always_vertical
   - ss_modify
+  - ss_invoice
+  - ss_dashboard
 
 themes:
   - vitoria

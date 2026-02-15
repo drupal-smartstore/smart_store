@@ -3,6 +3,7 @@
 namespace Drupal\toolbar_always_vertical\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+
 /**
  * Provides a 'Custom Form Block' block.
  *
@@ -25,4 +26,5 @@ class CustomFormBlock extends BlockBase {
     $build['form'] = \Drupal::formBuilder()->getForm('Drupal\toolbar_always_vertical\Form\CustomForm');
     return $build;
   }
+
 }

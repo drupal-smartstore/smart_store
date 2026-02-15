@@ -1,16 +1,16 @@
 toolbar_always_vertical.CustomForm:
-  path: '/custom-form'
+  path: "/custom-form"
   defaults:
     _form: '\Drupal\toolbar_always_vertical\Form\CustomForm'
-    _title: 'Student Registration Form'
+    _title: "Student Registration Form"
   requirements:
-    _permission: 'access content'
-    _access: 'TRUE'
+    _permission: "access content"
+    _access: "TRUE"
 
 toolbar_always_vertical.settings:
-  path: '/admin/config/toolbar-always-vertical/settings'
+  path: "/admin/config/toolbar-always-vertical/settings"
   defaults:
     _form: '\Drupal\toolbar_always_vertical\Form\ToolbarAlwaysVerticalConfigForm'
-    _title: 'Toolbar Always Vertical Settings'
+    _title: "Toolbar Always Vertical Settings"
   requirements:
-    _permission: 'administer site configuration'
+    _permission: "administer site configuration"

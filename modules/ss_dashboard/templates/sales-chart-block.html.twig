@@ -1,0 +1,17 @@
+<div id="sales-chart-container">
+	<div class="icon-sales-wrapper">
+		<span class="icon"></span>
+		<div class="info">
+			<div class="total-sales">
+				<h4>
+					Total Sales
+					<span>{{ content.total_sales }}</span>
+				</h4>
+			</div>
+
+			<div class="percentage-change {{ content.class }}">{{ content.percentage_change }}</div>
+		</div>
+	</div>
+
+	<div id="sales-chart"></div>
+</div>

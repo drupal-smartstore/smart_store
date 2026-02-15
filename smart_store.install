@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @file
+ * Install file for the Smart Store profile.
+ */
+
 /**
  * Implements hook_install().
  */
@@ -9,7 +15,7 @@ function smart_store_install() {
     ->set('admin', 'smart_store_admin')
     ->save();
 
-  // Enable ss_demo module to import all demo content
+  // Enable ss_demo module to import all demo content.
   $module = 'ss_demo';
 
   // Check if the module is already enabled.

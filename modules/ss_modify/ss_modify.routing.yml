@@ -1,15 +1,15 @@
 ss_modify.user_edit:
-  path: '/my-profile'
+  path: "/my-profile"
   defaults:
     _controller: '\Drupal\ss_modify\Controller\CustomUserEditController::editUser'
-    _title: 'Edit My Profile'
+    _title: "Edit My Profile"
   requirements:
-    _role: 'authenticated'
+    _role: "authenticated"
 
 ss_modify.admin_dashboard:
-  path: '/admin/dashboard'
+  path: "/admin/dashboard"
   defaults:
     _controller: '\Drupal\ss_modify\Controller\AdminDashboardController::content'
-    _title: ''
+    _title: ""
   requirements:
-    _permission: 'access content overview'
+    _permission: "access content overview"

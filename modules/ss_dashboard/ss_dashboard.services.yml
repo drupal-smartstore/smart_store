@@ -1,0 +1,7 @@
+services:
+  ss_dashboard.twig_extension:
+    class: Drupal\ss_dashboard\Twig\SmartStoreTwigExtension
+    arguments:
+      - "@entity_type.manager"
+    tags:
+      - { name: twig.extension }

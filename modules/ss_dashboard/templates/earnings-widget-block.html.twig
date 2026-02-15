@@ -1,0 +1,22 @@
+<div id="earnings-chart-container">
+	<div class="icon-sales-wrapper">
+		<span class="icon"></span>
+
+		<div class="info">
+			<div class="total-sales">
+				<h4>
+					Total Revenue
+					<span>{{ content.total_revenue }}</span>
+				</h4>
+				<h4>
+					Total Profit
+					<span>{{ content.total_profit }}</span>
+				</h4>
+			</div>
+
+			<div class="percentage-change {{ content.class }}">{{ content.percentage_change }}</div>
+		</div>
+	</div>
+
+	<div id="earnings-chart"></div>
+</div>

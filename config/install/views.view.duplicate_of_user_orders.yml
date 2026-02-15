@@ -19,11 +19,11 @@ dependencies:
     - state_machine
     - user
 _core:
-  default_config_hash: onODpRJw_ndLaTHVDc9-K-9CJHMEWxjZ1_KzgD4T2Mw
+  default_config_hash: lYJ6769IoO0UoEa4PDYLhXofdG3VieKGWp8uBghaD2Q
 id: duplicate_of_user_orders
-label: 'My Orders'
+label: "My Orders"
 module: views
-description: 'Display a list of placed orders for a user.'
+description: "Display a list of placed orders for a user."
 tag: Commerce
 base_table: commerce_order
 base_field: order_id
@@ -42,7 +42,7 @@ display:
           field: order_id
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: order_id
           plugin_id: field
@@ -50,57 +50,57 @@ display:
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: number_integer
           settings:
-            thousand_separator: ''
+            thousand_separator: ""
             prefix_suffix: true
           group_column: value
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         field_image:
           id: field_image
@@ -108,65 +108,65 @@ display:
           field: field_image
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: field
-          label: ''
+          label: ""
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
           type: image
           settings:
-            image_link: ''
-            image_style: ''
+            image_link: ""
+            image_style: ""
             image_loading:
               attribute: lazy
-          group_column: ''
-          group_columns: {  }
+          group_column: ""
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         product_id:
           id: product_id
@@ -174,48 +174,48 @@ display:
           field: product_id
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_product_variation
           entity_field: product_id
           plugin_id: field
-          label: ''
+          label: ""
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -224,14 +224,14 @@ display:
           settings:
             link: true
           group_column: target_id
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         attribute_size:
           id: attribute_size
@@ -239,46 +239,46 @@ display:
           field: attribute_size
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: field
-          label: 'Size :'
+          label: "Size :"
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -287,14 +287,14 @@ display:
           settings:
             link: false
           group_column: target_id
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         attribute_color:
           id: attribute_color
@@ -302,46 +302,46 @@ display:
           field: attribute_color
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: field
-          label: 'Color :'
+          label: "Color :"
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -350,14 +350,14 @@ display:
           settings:
             link: false
           group_column: target_id
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         price__number:
           id: price__number
@@ -365,48 +365,48 @@ display:
           field: price__number
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_product_variation
           entity_field: price
           plugin_id: field
-          label: ''
+          label: ""
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -415,15 +415,15 @@ display:
           settings:
             strip_trailing_zeroes: false
             currency_display: symbol
-          group_column: ''
-          group_columns: {  }
+          group_column: ""
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         state:
           id: state
@@ -431,63 +431,63 @@ display:
           field: state
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: state
           plugin_id: field
-          label: ''
+          label: ""
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: list_default
-          settings: {  }
+          settings: {}
           group_column: value
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         nothing:
           id: nothing
@@ -495,46 +495,46 @@ display:
           field: nothing
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: custom
-          label: ''
+          label: ""
           exclude: false
           alter:
             alter_text: true
             text: "Confirmed !\r\nYour Order has been placed."
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
@@ -544,48 +544,48 @@ display:
           field: placed
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: placed
           plugin_id: field
-          label: ''
+          label: ""
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -593,27 +593,27 @@ display:
           type: timestamp
           settings:
             date_format: short
-            custom_date_format: ''
-            timezone: ''
+            custom_date_format: ""
+            timezone: ""
             tooltip:
-              date_format: ''
-              custom_date_format: ''
+              date_format: ""
+              custom_date_format: ""
             time_diff:
               enabled: false
-              future_format: '@interval hence'
-              past_format: '@interval ago'
+              future_format: "@interval hence"
+              past_format: "@interval ago"
               granularity: 2
               refresh: 60
-              description: ''
+              description: ""
           group_column: value
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
       pager:
         type: full
@@ -624,16 +624,16 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
-            first: '« First'
-            last: 'Last »'
+            next: "Next ›"
+            previous: "‹ Previous"
+            first: "« First"
+            last: "Last »"
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_label: "Items per page"
+            items_per_page_options: "5, 10, 25, 50"
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: "- All -"
             offset: false
             offset_label: Offset
           quantity: 9
@@ -643,11 +643,11 @@ display:
           submit_button: Apply
           reset_button: false
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          exposed_sorts_label: "Sort by"
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required: "Select any filter and click on Apply to see results"
           text_input_required_format: null
           bef:
             general:
@@ -657,7 +657,7 @@ display:
               autosubmit_hide: false
               input_required: false
               allow_secondary: false
-              secondary_label: 'Advanced options'
+              secondary_label: "Advanced options"
               secondary_open: false
               reset_button_always_show: false
             sort:
@@ -665,10 +665,10 @@ display:
       access:
         type: perm
         options:
-          perm: 'view own commerce_order'
+          perm: "view own commerce_order"
       cache:
         type: tag
-        options: {  }
+        options: {}
       empty:
         area:
           id: area
@@ -676,15 +676,15 @@ display:
           field: area
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: text
           empty: true
           content:
-            value: 'You have not placed any orders with us yet.'
+            value: "You have not placed any orders with us yet."
             format: basic_html
           tokenize: false
-      sorts: {  }
-      arguments: {  }
+      sorts: {}
+      arguments: {}
       filters:
         state:
           id: state
@@ -692,7 +692,7 @@ display:
           field: state
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: state
           plugin_id: state_machine_state
@@ -702,14 +702,14 @@ display:
           group: 1
           exposed: false
           expose:
-            operator_id: ''
-            label: ''
-            description: ''
+            operator_id: ""
+            label: ""
+            description: ""
             use_operator: false
-            operator: ''
+            operator: ""
             operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
+            operator_list: {}
+            identifier: ""
             required: false
             remember: false
             multiple: false
@@ -718,38 +718,38 @@ display:
             reduce: false
           is_grouped: false
           group_info:
-            label: ''
-            description: ''
-            identifier: ''
+            label: ""
+            description: ""
+            identifier: ""
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: {}
+            group_items: {}
         uid_current:
           id: uid_current
           table: users
           field: uid_current
           relationship: uid
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: user
           plugin_id: user_current
-          operator: '='
-          value: '1'
+          operator: "="
+          value: "1"
           group: 1
           exposed: false
           expose:
-            operator_id: ''
-            label: ''
-            description: ''
+            operator_id: ""
+            label: ""
+            description: ""
             use_operator: false
-            operator: ''
+            operator: ""
             operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
+            operator_list: {}
+            identifier: ""
             required: false
             remember: false
             multiple: false
@@ -757,20 +757,20 @@ display:
               authenticated: authenticated
           is_grouped: false
           group_info:
-            label: ''
-            description: ''
-            identifier: ''
+            label: ""
+            description: ""
+            identifier: ""
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: {}
+            group_items: {}
       style:
         type: default
         options:
-          grouping: {  }
+          grouping: {}
           row_class: order-details-list
           default_row_class: false
       row:
@@ -779,16 +779,16 @@ display:
           default_field_elements: false
           inline:
             nothing: nothing
-          separator: ''
+          separator: ""
           hide_empty: false
       query:
         type: views_query
         options:
-          query_comment: ''
+          query_comment: ""
           disable_sql_rewrite: false
           distinct: false
           replica: false
-          query_tags: {  }
+          query_tags: {}
       relationships:
         order_items_target_id:
           id: order_items_target_id
@@ -796,7 +796,7 @@ display:
           field: order_items_target_id
           relationship: none
           group_type: group
-          admin_label: 'Order item'
+          admin_label: "Order item"
           entity_type: commerce_order
           entity_field: order_items
           plugin_id: standard
@@ -818,28 +818,28 @@ display:
           field: commerce_product_variation
           relationship: order_items_target_id
           group_type: group
-          admin_label: 'Product variation'
+          admin_label: "Product variation"
           entity_type: commerce_order_item
           plugin_id: standard
           required: true
-      header: {  }
-      footer: {  }
-      display_extenders: {  }
+      header: {}
+      footer: {}
+      display_extenders: {}
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
+        - "languages:language_content"
+        - "languages:language_interface"
         - url.query_args
         - user
         - user.permissions
       tags:
-        - 'config:field.storage.commerce_product_variation.attribute_color'
-        - 'config:field.storage.commerce_product_variation.attribute_size'
-        - 'config:field.storage.commerce_product_variation.field_image'
+        - "config:field.storage.commerce_product_variation.attribute_color"
+        - "config:field.storage.commerce_product_variation.attribute_size"
+        - "config:field.storage.commerce_product_variation.field_image"
   block_1:
     id: block_1
-    display_title: 'Confirmed order'
+    display_title: "Confirmed order"
     display_plugin: block
     position: 1
     display_options:
@@ -850,62 +850,62 @@ display:
           field: field_image
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
           type: image_url
           settings:
-            image_style: ''
-          group_column: ''
-          group_columns: {  }
+            image_style: ""
+          group_column: ""
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         attribute_color:
           id: attribute_color
@@ -913,46 +913,46 @@ display:
           field: attribute_color
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -961,14 +961,14 @@ display:
           settings:
             link: false
           group_column: target_id
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         attribute_size:
           id: attribute_size
@@ -976,46 +976,46 @@ display:
           field: attribute_size
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -1024,14 +1024,14 @@ display:
           settings:
             link: false
           group_column: target_id
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         quantity:
           id: quantity
@@ -1039,67 +1039,67 @@ display:
           field: quantity
           relationship: order_items_target_id
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order_item
           entity_field: quantity
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: number_decimal
           settings:
-            thousand_separator: ''
+            thousand_separator: ""
             decimal_separator: .
             scale: 2
             prefix_suffix: true
           group_column: value
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         unit_price__number:
           id: unit_price__number
@@ -1107,48 +1107,48 @@ display:
           field: unit_price__number
           relationship: order_items_target_id
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order_item
           entity_field: unit_price
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -1157,15 +1157,15 @@ display:
           settings:
             strip_trailing_zeroes: false
             currency_display: symbol
-          group_column: ''
-          group_columns: {  }
+          group_column: ""
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         total_paid__number:
           id: total_paid__number
@@ -1173,48 +1173,48 @@ display:
           field: total_paid__number
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: total_paid
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -1223,15 +1223,15 @@ display:
           settings:
             strip_trailing_zeroes: false
             currency_display: symbol
-          group_column: ''
-          group_columns: {  }
+          group_column: ""
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         purchased_entity:
           id: purchased_entity
@@ -1239,48 +1239,48 @@ display:
           field: purchased_entity
           relationship: order_items_target_id
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order_item
           entity_field: purchased_entity
           plugin_id: field
-          label: ''
+          label: ""
           exclude: false
           alter:
             alter_text: true
             text: "<div class=\"order-item\">\r\n   <img src=\"{{ field_image }}\" alt=\"T-Shirt\" width=\"150\" height=\"200\" loading=\"lazy\">\r\n   <div class=\"item-details\">\r\n      <p>{{ purchased_entity }}</p>\r\n   </div>\r\n   <div class=\"item-price\">\r\n      <p>{{ unit_price__number }}</p>\r\n    <p class=\"quantity\">Quantity: {{ quantity }}</p>\r\n   </div>\r\n</div>\r\n"
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -1289,14 +1289,14 @@ display:
           settings:
             link: true
           group_column: target_id
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         order_item_id:
           id: order_item_id
@@ -1304,65 +1304,65 @@ display:
           field: order_item_id
           relationship: order_items_target_id
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order_item
           entity_field: order_item_id
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: number_integer
           settings:
-            thousand_separator: ''
+            thousand_separator: ""
             prefix_suffix: true
           group_column: value
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
       exposed_form:
         type: basic
@@ -1370,7 +1370,7 @@ display:
           submit_button: Apply
           reset_button: false
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          exposed_sorts_label: "Sort by"
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
@@ -1381,7 +1381,7 @@ display:
           field: order_id
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: order_id
           plugin_id: numeric
@@ -1391,12 +1391,12 @@ display:
             title_enable: false
             title: All
           title_enable: false
-          title: ''
+          title: ""
           default_argument_type: fixed
           default_argument_options:
-            argument: ''
+            argument: ""
           summary_options:
-            base_path: ''
+            base_path: ""
             count: true
             override: false
             items_per_page: 25
@@ -1407,11 +1407,11 @@ display:
           specify_validation: false
           validate:
             type: none
-            fail: 'not found'
-          validate_options: {  }
+            fail: "not found"
+          validate_options: {}
           break_phrase: false
           not: false
-      filters: {  }
+      filters: {}
       filter_groups:
         operator: AND
         groups:
@@ -1432,7 +1432,7 @@ display:
           field: order_items_target_id
           relationship: none
           group_type: group
-          admin_label: 'Order item'
+          admin_label: "Order item"
           entity_type: commerce_order
           entity_field: order_items
           plugin_id: standard
@@ -1443,12 +1443,12 @@ display:
           field: commerce_product_variation
           relationship: order_items_target_id
           group_type: group
-          admin_label: 'Product variation'
+          admin_label: "Product variation"
           entity_type: commerce_order_item
           plugin_id: standard
           required: true
-      display_description: ''
-      header: {  }
+      display_description: ""
+      header: {}
       footer:
         commerce_payment_total_summary:
           id: commerce_payment_total_summary
@@ -1456,26 +1456,26 @@ display:
           field: commerce_payment_total_summary
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: commerce_payment_total_summary
           empty: false
-      display_extenders: {  }
-      block_description: 'Confirmed Orders'
+      display_extenders: {}
+      block_description: "Confirmed Orders"
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
+        - "languages:language_content"
+        - "languages:language_interface"
         - url
         - url.query_args
         - user.permissions
       tags:
-        - 'config:field.storage.commerce_product_variation.attribute_color'
-        - 'config:field.storage.commerce_product_variation.attribute_size'
-        - 'config:field.storage.commerce_product_variation.field_image'
+        - "config:field.storage.commerce_product_variation.attribute_color"
+        - "config:field.storage.commerce_product_variation.attribute_size"
+        - "config:field.storage.commerce_product_variation.field_image"
   order_page:
     id: order_page
-    display_title: 'My orders'
+    display_title: "My orders"
     display_plugin: page
     position: 1
     display_options:
@@ -1486,7 +1486,7 @@ display:
           field: order_id
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: order_id
           plugin_id: field
@@ -1494,57 +1494,57 @@ display:
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: number_integer
           settings:
-            thousand_separator: ''
+            thousand_separator: ""
             prefix_suffix: true
           group_column: value
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         field_image:
           id: field_image
@@ -1552,65 +1552,65 @@ display:
           field: field_image
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
           type: image
           settings:
-            image_link: ''
+            image_link: ""
             image_style: thumbnail
             image_loading:
               attribute: lazy
-          group_column: ''
-          group_columns: {  }
+          group_column: ""
+          group_columns: {}
           group_rows: true
           delta_limit: 1
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         product_id:
           id: product_id
@@ -1618,48 +1618,48 @@ display:
           field: product_id
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_product_variation
           entity_field: product_id
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -1668,14 +1668,14 @@ display:
           settings:
             link: false
           group_column: target_id
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         attribute_size:
           id: attribute_size
@@ -1683,46 +1683,46 @@ display:
           field: attribute_size
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: field
-          label: 'Size :'
+          label: "Size :"
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -1731,14 +1731,14 @@ display:
           settings:
             link: false
           group_column: target_id
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         attribute_color:
           id: attribute_color
@@ -1746,46 +1746,46 @@ display:
           field: attribute_color
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: field
-          label: 'Color :'
+          label: "Color :"
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -1794,14 +1794,14 @@ display:
           settings:
             link: false
           group_column: target_id
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         price__number:
           id: price__number
@@ -1809,48 +1809,48 @@ display:
           field: price__number
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_product_variation
           entity_field: price
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -1859,15 +1859,15 @@ display:
           settings:
             strip_trailing_zeroes: false
             currency_display: symbol
-          group_column: ''
-          group_columns: {  }
+          group_column: ""
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         uid:
           id: uid
@@ -1875,48 +1875,48 @@ display:
           field: uid
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: uid
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -1925,14 +1925,14 @@ display:
           settings:
             link: false
           group_column: target_id
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         state:
           id: state
@@ -1940,63 +1940,63 @@ display:
           field: state
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: state
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: list_default
-          settings: {  }
+          settings: {}
           group_column: value
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         placed:
           id: placed
@@ -2004,48 +2004,48 @@ display:
           field: placed
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: placed
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -2053,27 +2053,27 @@ display:
           type: timestamp
           settings:
             date_format: short
-            custom_date_format: ''
-            timezone: ''
+            custom_date_format: ""
+            timezone: ""
             tooltip:
-              date_format: ''
-              custom_date_format: ''
+              date_format: ""
+              custom_date_format: ""
             time_diff:
               enabled: false
-              future_format: '@interval hence'
-              past_format: '@interval ago'
+              future_format: "@interval hence"
+              past_format: "@interval ago"
               granularity: 2
               refresh: 60
-              description: ''
+              description: ""
           group_column: value
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         quantity:
           id: quantity
@@ -2081,67 +2081,67 @@ display:
           field: quantity
           relationship: order_items_target_id
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order_item
           entity_field: quantity
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: number_decimal
           settings:
-            thousand_separator: ''
+            thousand_separator: ""
             decimal_separator: .
             scale: 2
             prefix_suffix: true
           group_column: value
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         unit_price__number:
           id: unit_price__number
@@ -2149,48 +2149,48 @@ display:
           field: unit_price__number
           relationship: order_items_target_id
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order_item
           entity_field: unit_price
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -2199,15 +2199,15 @@ display:
           settings:
             strip_trailing_zeroes: false
             currency_display: symbol
-          group_column: ''
-          group_columns: {  }
+          group_column: ""
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         nothing:
           id: nothing
@@ -2215,46 +2215,46 @@ display:
           field: nothing
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: custom
-          label: ''
+          label: ""
           exclude: false
           alter:
             alter_text: true
-            text: "<a  href=\"/order-details/{{ order_id }}\">\r\n    <div class=\"order-card\">\r\n<div class=\"order-img\">{{ field_image }}</div>\r\n<div class=\"order-detail\">\r\n<div class=\"order-id\">{{ product_id }} </div>\r\n<div class=\"order-info\">\r\n{% if attribute_color %}\r\n <div class=\"order-color\">Color : {{ attribute_color }}  </div>\r\n{% endif %}\r\n{% if attribute_size %}\r\n <div class=\"order-size\">Size : {{ attribute_size }} </div>\r\n{% endif %}\r\n</div>\r\n</div>\r\n<div class=\"order-price\">{{ price__number }}</div>\r\n<div class=\"order-status\">\r\n<p>Confirmed !\r\nYour Order has been placed.</p>\r\n<span class=\"order-state\">{{ state }} </span> on  {{ placed }}\r\n</div>\r\n</div>\r\n\r\n</a>"
+            text: "<div class=\"order-list-info\">\r\n    <a href=\"/order-details/{{ order_id }}\">\r\n        <div class=\"order-card\">\r\n            <div class=\"order-img\">{{ field_image }}</div>\r\n            <div class=\"order-detail\">\r\n                <div class=\"order-id\">{{ product_id }} </div>\r\n                <div class=\"order-info\">\r\n                    {% if attribute_color %}\r\n                    <div class=\"order-color\">Color : {{ attribute_color }} </div>\r\n                    {% endif %}\r\n                    {% if attribute_size %}\r\n                    <div class=\"order-size\">Size : {{ attribute_size }} </div>\r\n                    {% endif %}\r\n                </div>\r\n            </div>\r\n            <div class=\"order-price\">{{ price__number }}</div>\r\n            <div class=\"order-status\">\r\n                <p>Confirmed !\r\n                    Your Order has been placed.</p>\r\n                <span class=\"order-state\">{{ state }} </span> on {{ placed }}\r\n            </div>\r\n        </div>\r\n    </a>\r\n\r\n    <div class=\"document-info\">\r\n        <a href=\"/order/{{ order_id }}/invoice\" class=\"button\">Invoice Slip</a>\r\n        \r\n        {% if currentUserRole() %}\r\n            <a href=\"/order/{{ order_id }}/delivery\" class=\"button\">Delivery Slip</a>\r\n        {% endif %}\r\n            \r\n    </div>\r\n</div>"
             make_link: false
-            path: 'order-details/{{ order_id }}'
+            path: "order-details/{{ order_id }}"
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
@@ -2264,63 +2264,63 @@ display:
           field: title
           relationship: commerce_product_variation
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_product_variation
           entity_field: title
           plugin_id: field
-          label: ''
+          label: ""
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: string
-          settings: {  }
+          settings: {}
           group_column: value
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         order_items_target_id:
           id: order_items_target_id
@@ -2328,48 +2328,48 @@ display:
           field: order_items_target_id
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: order_items
           plugin_id: field
-          label: 'Order items'
+          label: "Order items"
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -2378,14 +2378,14 @@ display:
           settings:
             view: commerce_order_item_table
           group_column: target_id
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
       exposed_form:
         type: bef
@@ -2393,11 +2393,11 @@ display:
           submit_button: Search
           reset_button: false
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          exposed_sorts_label: "Sort by"
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required: "Select any filter and click on Apply to see results"
           text_input_required_format: basic_html
           bef:
             general:
@@ -2407,7 +2407,7 @@ display:
               autosubmit_hide: false
               input_required: false
               allow_secondary: false
-              secondary_label: 'Advanced options'
+              secondary_label: "Advanced options"
               secondary_open: false
               reset_button_always_show: false
       sorts:
@@ -2417,16 +2417,16 @@ display:
           field: order_id
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: order_id
           plugin_id: standard
           order: DESC
           expose:
-            label: ''
-            field_identifier: ''
+            label: ""
+            field_identifier: ""
           exposed: false
-      arguments: {  }
+      arguments: {}
       filters:
         state:
           id: state
@@ -2434,7 +2434,7 @@ display:
           field: state
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: state
           plugin_id: state_machine_state
@@ -2444,14 +2444,14 @@ display:
           group: 1
           exposed: false
           expose:
-            operator_id: ''
-            label: ''
-            description: ''
+            operator_id: ""
+            label: ""
+            description: ""
             use_operator: false
-            operator: ''
+            operator: ""
             operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
+            operator_list: {}
+            identifier: ""
             required: false
             remember: false
             multiple: false
@@ -2460,38 +2460,38 @@ display:
             reduce: false
           is_grouped: false
           group_info:
-            label: ''
-            description: ''
-            identifier: ''
+            label: ""
+            description: ""
+            identifier: ""
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: {}
+            group_items: {}
         uid_current:
           id: uid_current
           table: users
           field: uid_current
           relationship: uid
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: user
           plugin_id: user_current
-          operator: '='
-          value: '1'
+          operator: "="
+          value: "1"
           group: 1
           exposed: false
           expose:
-            operator_id: ''
-            label: ''
-            description: ''
+            operator_id: ""
+            label: ""
+            description: ""
             use_operator: false
-            operator: ''
+            operator: ""
             operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
+            operator_list: {}
+            identifier: ""
             required: false
             remember: false
             multiple: false
@@ -2499,60 +2499,60 @@ display:
               authenticated: authenticated
           is_grouped: false
           group_info:
-            label: ''
-            description: ''
-            identifier: ''
+            label: ""
+            description: ""
+            identifier: ""
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: {}
+            group_items: {}
         combine:
           id: combine
           table: views
           field: combine
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: combine
           operator: word
-          value: ''
+          value: ""
           group: 1
           exposed: true
           expose:
             operator_id: combine_op
-            label: ''
-            description: ''
+            label: ""
+            description: ""
             use_operator: false
             operator: combine_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: {}
             identifier: combine
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              customer_support: '0'
-              content_manager: '0'
-              store_manager: '0'
-            placeholder: 'Search your order here'
+              anonymous: "0"
+              administrator: "0"
+              customer_support: "0"
+              content_manager: "0"
+              store_manager: "0"
+            placeholder: "Search your order here"
           is_grouped: false
           group_info:
-            label: ''
-            description: ''
-            identifier: ''
+            label: ""
+            description: ""
+            identifier: ""
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: {}
+            group_items: {}
           fields:
             attribute_size: attribute_size
             title: title
@@ -2562,12 +2562,12 @@ display:
           field: state
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: state
           plugin_id: state_machine_state
           operator: in
-          value: {  }
+          value: {}
           group: 1
           exposed: true
           expose:
@@ -2577,7 +2577,7 @@ display:
             use_operator: false
             operator: state_1_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: {}
             identifier: state_1
             required: false
             remember: false
@@ -2587,107 +2587,107 @@ display:
             reduce: false
           is_grouped: true
           group_info:
-            label: 'ORDER STATUS'
-            description: ''
+            label: "ORDER STATUS"
+            description: ""
             identifier: state_1
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
+            default_group_multiple: {}
             group_items:
               1:
                 title: Completed
                 operator: in
                 value:
                   completed: completed
-                  all: '0'
-                  draft: '0'
-                  canceled: '0'
+                  all: "0"
+                  draft: "0"
+                  canceled: "0"
               2:
                 title: Canceled
                 operator: in
                 value:
                   canceled: canceled
-                  all: '0'
-                  draft: '0'
-                  completed: '0'
+                  all: "0"
+                  draft: "0"
+                  completed: "0"
               3:
-                title: ''
+                title: ""
                 operator: in
                 value:
-                  all: '0'
-                  draft: '0'
-                  completed: '0'
-                  canceled: '0'
+                  all: "0"
+                  draft: "0"
+                  completed: "0"
+                  canceled: "0"
         placed:
           id: placed
           table: commerce_order
           field: placed
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: placed
           plugin_id: date
-          operator: '='
+          operator: "="
           value:
-            min: ''
-            max: ''
-            value: ''
+            min: ""
+            max: ""
+            value: ""
             type: date
           group: 1
           exposed: true
           expose:
             operator_id: placed_op
-            label: 'ORDER TIME'
-            description: ''
+            label: "ORDER TIME"
+            description: ""
             use_operator: false
             operator: placed_op
             operator_limit_selection: false
-            operator_list: {  }
+            operator_list: {}
             identifier: placed
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              customer_support: '0'
-              content_manager: '0'
-              store_manager: '0'
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
+              anonymous: "0"
+              administrator: "0"
+              customer_support: "0"
+              content_manager: "0"
+              store_manager: "0"
+            min_placeholder: ""
+            max_placeholder: ""
+            placeholder: ""
           is_grouped: true
           group_info:
-            label: 'ORDER TIME'
-            description: ''
+            label: "ORDER TIME"
+            description: ""
             identifier: placed
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
+            default_group_multiple: {}
             group_items:
               1:
-                title: 'Last 30 days'
-                operator: '>='
+                title: "Last 30 days"
+                operator: ">="
                 value:
-                  min: ''
-                  max: ''
-                  value: '- 30 days'
+                  min: ""
+                  max: ""
+                  value: "- 30 days"
                   type: offset
               2:
-                title: '2024'
-                operator: '='
+                title: "2024"
+                operator: "="
                 value:
-                  min: ''
-                  max: ''
-                  value: '2024'
+                  min: ""
+                  max: ""
+                  value: "2024"
                   type: date
       filter_groups:
         operator: AND
@@ -2697,8 +2697,7 @@ display:
         type: html_list
         options:
           grouping:
-            -
-              field: order_id
+            - field: order_id
               rendered: true
               rendered_strip: false
           row_class: order-list
@@ -2712,7 +2711,7 @@ display:
           default_field_elements: false
           inline:
             nothing: nothing
-          separator: ''
+          separator: ""
           hide_empty: false
       defaults:
         css_class: false
@@ -2725,34 +2724,34 @@ display:
         filters: false
         filter_groups: false
       css_class: order-list-outer
-      display_description: ''
-      display_extenders: {  }
+      display_description: ""
+      display_extenders: {}
       path: orders
       menu:
         type: tab
         title: Orders
-        description: ''
+        description: ""
         weight: 0
         expanded: false
         menu_name: account
-        parent: ''
-        context: '0'
+        parent: ""
+        context: "0"
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
+        - "languages:language_content"
+        - "languages:language_interface"
         - url
         - url.query_args
         - user
         - user.permissions
       tags:
-        - 'config:field.storage.commerce_product_variation.attribute_color'
-        - 'config:field.storage.commerce_product_variation.attribute_size'
-        - 'config:field.storage.commerce_product_variation.field_image'
+        - "config:field.storage.commerce_product_variation.attribute_color"
+        - "config:field.storage.commerce_product_variation.attribute_size"
+        - "config:field.storage.commerce_product_variation.field_image"
   page_1:
     id: page_1
-    display_title: 'Order details'
+    display_title: "Order details"
     display_plugin: page
     position: 3
     display_options:
@@ -2763,48 +2762,48 @@ display:
           field: placed
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: placed
           plugin_id: field
-          label: 'Order Placed'
+          label: "Order Placed"
           exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: ""
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -2812,27 +2811,27 @@ display:
           type: timestamp
           settings:
             date_format: short
-            custom_date_format: ''
-            timezone: ''
+            custom_date_format: ""
+            timezone: ""
             tooltip:
-              date_format: ''
-              custom_date_format: ''
+              date_format: ""
+              custom_date_format: ""
             time_diff:
               enabled: false
-              future_format: '@interval hence'
-              past_format: '@interval ago'
+              future_format: "@interval hence"
+              past_format: "@interval ago"
               granularity: 2
               refresh: 60
-              description: ''
+              description: ""
           group_column: value
-          group_columns: {  }
+          group_columns: {}
           group_rows: true
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ", "
           field_api_classes: false
         nothing:
           id: nothing
@@ -2840,46 +2839,46 @@ display:
           field: nothing
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: custom
-          label: ''
+          label: ""
           exclude: false
           alter:
             alter_text: true
             text: "<div class=\"order-placed\">\r\n<span>Order Placed On</span> {{ placed }}\r\n</div>"
             make_link: false
-            path: ''
+            path: ""
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
+            alt: ""
+            rel: ""
+            link_class: ""
+            prefix: ""
+            suffix: ""
+            target: ""
             nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            more_link_text: ""
+            more_link_path: ""
             strip_tags: false
             trim: false
-            preserve_tags: ''
+            preserve_tags: ""
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
+          element_type: ""
+          element_class: ""
+          element_label_type: ""
+          element_label_class: ""
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: ""
+          element_wrapper_class: ""
           element_default_classes: true
-          empty: ''
+          empty: ""
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
@@ -2894,11 +2893,11 @@ display:
           submit_button: Apply
           reset_button: false
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          exposed_sorts_label: "Sort by"
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-      sorts: {  }
+      sorts: {}
       arguments:
         order_id:
           id: order_id
@@ -2906,7 +2905,7 @@ display:
           field: order_id
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: commerce_order
           entity_field: order_id
           plugin_id: numeric
@@ -2916,12 +2915,12 @@ display:
             title_enable: false
             title: All
           title_enable: false
-          title: ''
+          title: ""
           default_argument_type: fixed
           default_argument_options:
-            argument: ''
+            argument: ""
           summary_options:
-            base_path: ''
+            base_path: ""
             count: true
             override: false
             items_per_page: 25
@@ -2932,8 +2931,8 @@ display:
           specify_validation: false
           validate:
             type: none
-            fail: 'not found'
-          validate_options: {  }
+            fail: "not found"
+          validate_options: {}
           break_phrase: false
           not: false
       filters:
@@ -2943,22 +2942,22 @@ display:
           field: uid_current
           relationship: uid
           group_type: group
-          admin_label: ''
+          admin_label: ""
           entity_type: user
           plugin_id: user_current
-          operator: '='
-          value: '1'
+          operator: "="
+          value: "1"
           group: 1
           exposed: false
           expose:
-            operator_id: ''
-            label: ''
-            description: ''
+            operator_id: ""
+            label: ""
+            description: ""
             use_operator: false
-            operator: ''
+            operator: ""
             operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
+            operator_list: {}
+            identifier: ""
             required: false
             remember: false
             multiple: false
@@ -2966,16 +2965,16 @@ display:
               authenticated: authenticated
           is_grouped: false
           group_info:
-            label: ''
-            description: ''
-            identifier: ''
+            label: ""
+            description: ""
+            identifier: ""
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: {}
+            group_items: {}
       filter_groups:
         operator: AND
         groups:
@@ -2983,7 +2982,7 @@ display:
       style:
         type: default
         options:
-          grouping: {  }
+          grouping: {}
           row_class: order-details-list
           default_row_class: false
       row:
@@ -2992,16 +2991,16 @@ display:
           default_field_elements: false
           inline:
             nothing: nothing
-          separator: ''
+          separator: ""
           hide_empty: false
       query:
         type: views_query
         options:
-          query_comment: ''
+          query_comment: ""
           disable_sql_rewrite: false
           distinct: true
           replica: false
-          query_tags: {  }
+          query_tags: {}
       defaults:
         query: false
         css_class: false
@@ -3036,7 +3035,7 @@ display:
           field: order_items_target_id
           relationship: none
           group_type: group
-          admin_label: 'Order item'
+          admin_label: "Order item"
           entity_type: commerce_order
           entity_field: order_items
           plugin_id: standard
@@ -3047,13 +3046,13 @@ display:
           field: commerce_product_variation
           relationship: order_items_target_id
           group_type: group
-          admin_label: 'Product variation'
+          admin_label: "Product variation"
           entity_type: commerce_order_item
           plugin_id: standard
           required: true
-      css_class: 'wrapper order-confirmation'
+      css_class: "wrapper order-confirmation"
       group_by: false
-      display_description: ''
+      display_description: ""
       header:
         view:
           id: view
@@ -3061,10 +3060,10 @@ display:
           field: view
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: view
           empty: false
-          view_to_insert: 'commerce_user_orders:block_1'
+          view_to_insert: "commerce_user_orders:block_1"
           inherit_arguments: true
         view_1:
           id: view_1
@@ -3072,20 +3071,20 @@ display:
           field: view
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           plugin_id: view
           empty: false
-          view_to_insert: 'duplicate_of_user_orders:block_1'
+          view_to_insert: "duplicate_of_user_orders:block_1"
           inherit_arguments: true
-      footer: {  }
-      display_extenders: {  }
+      footer: {}
+      display_extenders: {}
       path: order-details/%order_id
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
+        - "languages:language_content"
+        - "languages:language_interface"
         - url
         - user
         - user.permissions
-      tags: {  }
+      tags: {}

@@ -1,0 +1,7 @@
+ss_dashboard.earnings_settings:
+  path: "/admin/config/smart_store/dashboard/earnings-settings"
+  defaults:
+    _form: '\Drupal\ss_dashboard\Form\EarningsSettingsForm'
+    _title: "Earnings Settings"
+  requirements:
+    _permission: "administer site configuration"

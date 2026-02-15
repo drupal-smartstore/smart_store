@@ -19,6 +19,6 @@ default:
       value: true
   body:
     -
-      value: '<p>CALL TO ORDER</p><h4>+123 4567 890</h4>'
+      value: '<p>CALL TO ORDER</p><h4>+91 120 4601800</h4>'
       format: full_html
       summary: ''
