@@ -6,12 +6,40 @@
  */
 
 /**
+ * Implements hook_install_tasks_alter().
+ *
+ * Inserts the storefront theme choice step after profile install, before
+ * Configure site. Only the chosen theme is installed via Composer.
+ */
+function smart_store_install_tasks_alter(&$tasks, $install_state) {
+  $theme_task = [
+    'install_smartstore_storefront_theme' => [
+      'display_name' => t('Choose storefront theme'),
+      'type' => 'form',
+      'function' => 'Drupal\smart_store\Form\StorefrontThemeInstallForm',
+    ],
+  ];
+
+  $keys = array_keys($tasks);
+  $pos = array_search('install_install_profile', $keys, TRUE);
+  if ($pos !== FALSE && isset($keys[$pos + 1])) {
+    $tasks = array_slice($tasks, 0, $pos + 1, TRUE)
+      + $theme_task
+      + array_slice($tasks, $pos + 1, NULL, TRUE);
+  }
+  else {
+    $tasks = $tasks + $theme_task;
+  }
+}
+
+/**
  * Implements hook_install().
  */
 function smart_store_install() {
-  // Set default theme.
+  // Default theme is set by the storefront theme install step. Use stark until
+  // the user chooses a theme (or they skipped).
   \Drupal::configFactory()->getEditable('system.theme')
-    ->set('default', 'vitoria')
+    ->set('default', 'stark')
     ->set('admin', 'smart_store_admin')
     ->save();
 
