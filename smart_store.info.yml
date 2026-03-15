@@ -113,6 +113,4 @@ install:
   - ss_dashboard
 
 themes:
-  - vitoria
   - smart_store_admin
-  - kart
