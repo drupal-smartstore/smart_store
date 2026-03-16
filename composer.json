@@ -3,11 +3,6 @@
     "description": "Drupal Commerce related projects maintained by smart store.",
     "type": "drupal-profile",
     "license": "GPL-2.0-or-later",
-    "autoload": {
-        "psr-4": {
-            "Drupal\\smart_store\\": "src/"
-        }
-    },
     "homepage": "https://github.com/drupal-smartstore",
     "authors": [
         {
@@ -29,7 +24,10 @@
         "drupal/better_exposed_filters": "^7.1",
         "drupal/commerce": "^3.2",
         "drupal/default_content": "^2.0@alpha",
+        "drupal/estore": "^2.2",
+        "drupal/kart": "1.0",
         "smartstore/smart_store_admin":"1.x-dev",
+        "smartstore/vitoria": "1.0.x-dev",
         "drupal/commerce_autosku": "^2.1",
         "drupal/backup_migrate": "^5.1",
         "drupal/color_field": "^3.0",
