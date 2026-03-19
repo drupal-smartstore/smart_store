@@ -1,0 +1,13 @@
+diff --git a/change_user_route.info.yml b/change_user_route.info.yml
+index ddffb5c..5b7a9cd 100755
+--- a/change_user_route.info.yml
++++ b/change_user_route.info.yml
+@@ -1,7 +1,6 @@
+ name: Change user route
+ description: 'Allows administrators to change the path of login password registration and logout'
+-core: 8.x
+ type: module
+-core_version_requirement: ^8 || ^9
++core_version_requirement: ^9 || ^10 || ^11
+ configure: simple.config
+ package: User Path Change

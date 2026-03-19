@@ -58,7 +58,7 @@ class InvoiceController extends ControllerBase {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container): self {
-    return new static(
+    return new self(
       $container->get('current_user'),
       $container->get('renderer'),
       $container->get('ss_invoice.invoice_service')

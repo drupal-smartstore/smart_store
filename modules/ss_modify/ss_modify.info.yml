@@ -1,4 +1,4 @@
 name: "Smart Store modifications"
 type: module
 description: "Provides smart store modifications"
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
