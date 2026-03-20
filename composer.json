@@ -15,6 +15,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "https://git.drupalcode.org/project/fivestar.git"
         }
     ],
     "require": {
@@ -39,7 +43,7 @@
         "drupal/facets": "^3.0",
         "drupal/facets_pretty_paths": "^2.0",
         "drupal/field_group": "^4.0",
-        "drupal/fivestar": "^1.0@alpha",
+        "drupal/fivestar": "dev-3.0.x",
         "drupal/flag": "^5.0",
         "drupal/imagezoom": "^2.0@beta",
         "drupal/insert_view_adv": "^2.0@alpha",
