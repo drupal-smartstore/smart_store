@@ -18,7 +18,19 @@
         },
         {
             "type": "vcs",
+            "url": "https://git.drupalcode.org/project/commerce_autosku.git"
+        },
+        {
+            "type": "vcs",
             "url": "https://git.drupalcode.org/project/fivestar.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://git.drupalcode.org/project/imagezoom.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://git.drupalcode.org/project/votingapi.git"
         }
     ],
     "require": {
@@ -30,7 +42,7 @@
         "drupal/color_field": "^3.0",
         "drupal/commerce": "^3.2",
         "drupal/commerce_ajax_atc": "^1.0@RC",
-        "drupal/commerce_autosku": "^2.1",
+        "drupal/commerce_autosku": "dev-8.x-2.x",
         "drupal/commerce_combine_carts": "^1.1",
         "drupal/commerce_shipping": "^2.15",
         "drupal/commerce_stock": "^3.0",
@@ -45,7 +57,7 @@
         "drupal/field_group": "^4.0",
         "drupal/fivestar": "dev-3.0.x",
         "drupal/flag": "^5.0",
-        "drupal/imagezoom": "^2.0@beta",
+        "drupal/imagezoom": "dev-8.x-2.x",
         "drupal/insert_view_adv": "^2.0@alpha",
         "drupal/kart": "^1.0",
         "drupal/login_redirect_per_role": "^1.11",
@@ -58,6 +70,7 @@
         "drupal/toolbar_visibility": "^3.0",
         "drupal/twig_tweak": "^3.4",
         "drupal/upgrade_status": "^4.3",
+        "drupal/votingapi": "dev-4.0.x",
         "enyo/dropzone": "^6.0@beta",
         "npm-asset/intl-tel-input": "^17.0",
         "oomphinc/composer-installers-extender": "^2.0",
@@ -77,7 +90,6 @@
                 "Compatibility warnings fix": "patches/fivestar_d11_warnings_fixes.patch"
             },
             "drupal/imagezoom": {
-                "D11 compatibility fix": "https://www.drupal.org/files/issues/2024-07-06/imagezoom.2.x-dev.rector.patch",
                 "Drupal 11: fix unsafe new static() in ImageZoomFormatter": "patches/imagezoom_d11_new_static.patch"
             },
             "drupal/kart": {
@@ -87,7 +99,6 @@
                 "Drupal 11: fix unsafe new static() in ToolbarVisibilitySettingsForm": "patches/toolbar_visibility_d11_new_static.patch"
             },
             "drupal/votingapi": {
-                "D11 compatibility fix": "https://www.drupal.org/files/issues/2025-04-02/d11-votingapi.patch",
                 "D11 warnings fixes (new static, PHP 8.4 nullable, missing returns)": "patches/votingapi_d11_warnings_fixes.patch"
             }
         }
