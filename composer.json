@@ -17,17 +17,8 @@
             "url": "https://packages.drupal.org/8"
         },
         {
-            "type": "package",
-            "package": {
-                "name": "drupal/commerce_autosku",
-                "version": "dev-2.x",
-                "type": "drupal-module",
-                "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/commerce_autosku.git",
-                "reference": "2.x"
-                }
-            }
+            "type": "vcs",
+            "url": "https://github.com/bhojwanipankaj05/commerce_autosku"
         },
         {
             "type": "vcs",
@@ -51,7 +42,7 @@
         "drupal/color_field": "^3.0",
         "drupal/commerce": "^3.2",
         "drupal/commerce_ajax_atc": "^1.0@RC",
-        "drupal/commerce_autosku": "dev-2.x",
+        "drupal/commerce_autosku": "dev-8.x-2.x",
         "drupal/commerce_combine_carts": "^1.1",
         "drupal/commerce_shipping": "^2.15",
         "drupal/commerce_stock": "^3.0",
@@ -66,7 +57,7 @@
         "drupal/field_group": "^4.0",
         "drupal/fivestar": "dev-3.0.x",
         "drupal/flag": "^5.0",
-        "drupal/imagezoom": "dev-2.x",
+        "drupal/imagezoom": "dev-8.x-2.x",
         "drupal/insert_view_adv": "^2.0@alpha",
         "drupal/kart": "^1.0",
         "drupal/login_redirect_per_role": "^1.11",
