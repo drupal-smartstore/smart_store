@@ -42,7 +42,7 @@
         "drupal/color_field": "^3.0",
         "drupal/commerce": "^3.2",
         "drupal/commerce_ajax_atc": "^1.0@RC",
-        "drupal/commerce_autosku": "dev-2.x as 2.1.0",
+        "drupal/commerce_autosku": "dev-8.x-2.x as 2.1.0",
         "drupal/commerce_combine_carts": "^1.1",
         "drupal/commerce_shipping": "^2.15",
         "drupal/commerce_stock": "^3.0",
