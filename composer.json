@@ -17,8 +17,17 @@
             "url": "https://packages.drupal.org/8"
         },
         {
-            "type": "vcs",
-            "url": "https://git.drupalcode.org/project/commerce_autosku.git"
+            "type": "package",
+            "package": {
+                "name": "drupal/commerce_autosku",
+                "version": "dev-2.x",
+                "type": "drupal-module",
+                "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/commerce_autosku.git",
+                "reference": "2.x"
+                }
+            }
         },
         {
             "type": "vcs",
