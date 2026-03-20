@@ -23,7 +23,6 @@
         "drupal/backup_migrate": "^5.1",
         "drupal/better_exposed_filters": "^7.1",
         "drupal/block_class": "^4.0",
-        "drupal/change_user_route": "^3.0",
         "drupal/color_field": "^3.0",
         "drupal/commerce": "^3.2",
         "drupal/commerce_ajax_atc": "^1.0@RC",
@@ -65,9 +64,6 @@
     },
     "extra": {
         "patches": {
-            "drupal/change_user_route": {
-                "D11 compatibility fixes": "patches/change_user_route_d11_upgrade.patch"
-            },
             "drupal/commerce_autosku": {
                 "D11 compatibility fix": "https://www.drupal.org/files/issues/2024-03-16/commerce_autosku.8.x-2.1.rector.patch",
                 "Compatibility warnings fix": "patches/commerce_autosku_d11_warnings_fixes.patch"
