@@ -14,7 +14,8 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/bhojwanipankaj05/commerce_autosku"
+            "url": "https://github.com/bhojwanipankaj05/commerce_autosku",
+            "canonical": false
         },
         {
             "type": "composer",
