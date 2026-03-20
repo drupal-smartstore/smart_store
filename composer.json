@@ -23,6 +23,7 @@
         "drupal/backup_migrate": "^5.1",
         "drupal/better_exposed_filters": "^7.1",
         "drupal/block_class": "^4.0",
+        "drupal/change_user_route": "^3.0",
         "drupal/color_field": "^3.0",
         "drupal/commerce": "^3.2",
         "drupal/commerce_ajax_atc": "^1.0@RC",
@@ -55,7 +56,6 @@
         "drupal/twig_tweak": "^3.4",
         "drupal/upgrade_status": "^4.3",
         "enyo/dropzone": "^6.0@beta",
-        "mglaman/composer-drupal-lenient": "^1.0",
         "npm-asset/intl-tel-input": "^17.0",
         "oomphinc/composer-installers-extender": "^2.0",
         "smartstore/smart_store_admin": "1.x-dev",
@@ -63,23 +63,11 @@
 
 
     },
-    "config": {
-        "allow-plugins": {
-            "composer/installers": true,
-            "cweagans/composer-patches": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true,
-            "mglaman/composer-drupal-lenient": true,
-            "oomphinc/composer-installers-extender": true,
-            "php-http/discovery": true,
-            "phpstan/extension-installer": true,
-            "tbachert/spi": true
-        },
-        "sort-packages": true
-    },
     "extra": {
         "patches": {
+            "drupal/change_user_route": {
+                "D11 compatibility fixes": "patches/change_user_route_d11_upgrade.patch"
+            },
             "drupal/commerce_autosku": {
                 "D11 compatibility fix": "https://www.drupal.org/files/issues/2024-03-16/commerce_autosku.8.x-2.1.rector.patch",
                 "Compatibility warnings fix": "patches/commerce_autosku_d11_warnings_fixes.patch"
@@ -102,14 +90,6 @@
                 "D11 compatibility fix": "https://www.drupal.org/files/issues/2025-04-02/d11-votingapi.patch",
                 "D11 warnings fixes (new static, PHP 8.4 nullable, missing returns)": "patches/votingapi_d11_warnings_fixes.patch"
             }
-        },
-        "drupal-lenient": {
-            "allowed-list": [
-                "drupal/imagezoom",
-                "drupal/votingapi",
-                "drupal/fivestar",
-                "drupal/commerce_autosku"
-            ]
         }
     }
 }
