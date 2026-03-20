@@ -13,9 +13,17 @@
     "prefer-stable": true,
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/bhojwanipankaj05/commerce_autosku",
-            "canonical": false
+            "type": "package",
+            "package": {
+                "name": "drupal-gitlab/commerce_autosku",
+                "type": "drupal-module",
+                "version": "dev-8.x-2.x@dev",
+                "source": {
+                "type": "git",
+                "url": "https://github.com/bhojwanipankaj05/commerce_autosku.git",
+                "reference": "8.x-2.x"
+                }
+            }
         },
         {
             "type": "composer",
@@ -43,7 +51,7 @@
         "drupal/color_field": "^3.0",
         "drupal/commerce": "^3.2",
         "drupal/commerce_ajax_atc": "^1.0@RC",
-        "drupal/commerce_autosku": "dev-2.x as 2.1.0",
+        "drupal-gitlab/commerce_autosku": "dev-8.x-2.x@dev",
         "drupal/commerce_combine_carts": "^1.1",
         "drupal/commerce_shipping": "^2.15",
         "drupal/commerce_stock": "^3.0",
