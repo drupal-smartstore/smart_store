@@ -42,7 +42,7 @@
         "drupal/color_field": "^3.0",
         "drupal/commerce": "^3.2",
         "drupal/commerce_ajax_atc": "^1.0@RC",
-        "drupal/commerce_autosku": "dev-8.x-2.x",
+        "drupal/commerce_autosku": "dev-2.x",
         "drupal/commerce_combine_carts": "^1.1",
         "drupal/commerce_shipping": "^2.15",
         "drupal/commerce_stock": "^3.0",
@@ -57,7 +57,7 @@
         "drupal/field_group": "^4.0",
         "drupal/fivestar": "dev-3.0.x",
         "drupal/flag": "^5.0",
-        "drupal/imagezoom": "dev-8.x-2.x",
+        "drupal/imagezoom": "dev-2.x",
         "drupal/insert_view_adv": "^2.0@alpha",
         "drupal/kart": "^1.0",
         "drupal/login_redirect_per_role": "^1.11",
@@ -82,7 +82,6 @@
     "extra": {
         "patches": {
             "drupal/commerce_autosku": {
-                "D11 compatibility fix": "https://www.drupal.org/files/issues/2024-03-16/commerce_autosku.8.x-2.1.rector.patch",
                 "Compatibility warnings fix": "patches/commerce_autosku_d11_warnings_fixes.patch"
             },
             "drupal/fivestar": {
