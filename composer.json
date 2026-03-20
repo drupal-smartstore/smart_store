@@ -13,12 +13,12 @@
     "prefer-stable": true,
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        },
-        {
             "type": "vcs",
             "url": "https://github.com/bhojwanipankaj05/commerce_autosku"
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
         },
         {
             "type": "vcs",
@@ -42,7 +42,7 @@
         "drupal/color_field": "^3.0",
         "drupal/commerce": "^3.2",
         "drupal/commerce_ajax_atc": "^1.0@RC",
-        "drupal/commerce_autosku": "dev-2.x",
+        "drupal/commerce_autosku": "dev-2.x as 2.1.0",
         "drupal/commerce_combine_carts": "^1.1",
         "drupal/commerce_shipping": "^2.15",
         "drupal/commerce_stock": "^3.0",
