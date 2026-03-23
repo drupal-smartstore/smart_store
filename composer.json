@@ -65,6 +65,7 @@
         "drupal/smtp": "^1.4",
         "drupal/toolbar_visibility": "^3.0",
         "drupal/twig_tweak": "^3.4",
+        "drupal-gitlab/change_user_route": "dev-8.x-2.x@dev",
         "drupal/upgrade_status": "^4.3",
         "drupal/votingapi": "dev-4.0.x",
         "enyo/dropzone": "^6.0@beta",
@@ -77,6 +78,9 @@
     },
     "extra": {
         "patches": {
+            "drupal/change_user_route": {
+                "D11 compatibility fixes": "patches/change_user_route_d11_upgrade.patch"
+            },
             "drupal/commerce_autosku": {
                 "Compatibility warnings fix": "patches/commerce_autosku_d11_warnings_fixes.patch"
             },
