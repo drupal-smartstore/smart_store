@@ -66,7 +66,6 @@
         "drupal/toolbar_visibility": "^3.0",
         "drupal/twig_tweak": "^3.4",
         "drupal-gitlab/change_user_route": "dev-8.x-2.x@dev",
-        "drupal/upgrade_status": "^4.3",
         "drupal/votingapi": "dev-4.0.x",
         "enyo/dropzone": "^6.0@beta",
         "npm-asset/intl-tel-input": "^17.0",
