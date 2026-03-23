@@ -13,19 +13,6 @@
     "prefer-stable": true,
     "repositories": [
         {
-            "type": "package",
-            "package": {
-                "name": "drupal-gitlab/commerce_autosku",
-                "type": "drupal-module",
-                "version": "dev-8.x-2.x@dev",
-                "source": {
-                "type": "git",
-                "url": "https://github.com/bhojwanipankaj05/commerce_autosku.git",
-                "reference": "8.x-2.x"
-                }
-            }
-        },
-        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
