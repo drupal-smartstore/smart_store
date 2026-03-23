@@ -78,10 +78,10 @@
     },
     "extra": {
         "patches": {
-            "drupal/change_user_route": {
+            "drupal-gitlab/change_user_route": {
                 "D11 compatibility fixes": "patches/change_user_route_d11_upgrade.patch"
             },
-            "drupal/commerce_autosku": {
+            "drupal-gitlab/commerce_autosku": {
                 "Compatibility warnings fix": "patches/commerce_autosku_d11_warnings_fixes.patch"
             },
             "drupal/fivestar": {

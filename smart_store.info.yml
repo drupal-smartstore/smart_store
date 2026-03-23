@@ -90,6 +90,7 @@ install:
   - login_redirect_per_role
   - password_policy
   - menu_per_role
+  - change_user_route
   - commerce_payment_example
   - facets_pretty_paths
   - pathauto
