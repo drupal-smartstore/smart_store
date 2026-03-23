@@ -94,7 +94,6 @@
                 "Compatibility warnings fix": "patches/commerce_autosku_d11_warnings_fixes.patch"
             },
             "drupal/fivestar": {
-                "D11 compatibility fix": "https://www.drupal.org/files/issues/2024-06-02/fivestar.1.x-dev.rector_0.patch",
                 "Compatibility warnings fix": "patches/fivestar_d11_warnings_fixes.patch"
             },
             "drupal/imagezoom": {
@@ -105,9 +104,6 @@
             },
             "drupal/toolbar_visibility": {
                 "Drupal 11: fix unsafe new static() in ToolbarVisibilitySettingsForm": "patches/toolbar_visibility_d11_new_static.patch"
-            },
-            "drupal/votingapi": {
-                "D11 warnings fixes (new static, PHP 8.4 nullable, missing returns)": "patches/votingapi_d11_warnings_fixes.patch"
             }
         }
     }
