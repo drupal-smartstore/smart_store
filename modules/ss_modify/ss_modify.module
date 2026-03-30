@@ -26,8 +26,8 @@ function ss_modify_page_attachments(array &$attachments) {
 
   $should_clear = (bool) $state->get('smart_store.clear_install_status_messages');
 
-  // Fallback: if the flag is missing (older installs), clear only if these are
-  // clearly install-related messages.
+  // if the state flag is missing for any reason, only clear status
+  // messages that look like install-time output.
   if (!$should_clear) {
     $needles = [
       'Thanks for installing',
