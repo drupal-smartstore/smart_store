@@ -8,6 +8,23 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
+ * Implements hook_page_attachments().
+ */
+function ss_modify_page_attachments(array &$attachments) {
+  $state = \Drupal::state();
+  if (!$state->get('smart_store.clear_install_status_messages')) {
+    return;
+  }
+
+  // Clear installer status messages on first page view after install.
+  $request = \Drupal::requestStack()->getCurrentRequest();
+  if ($request && $request->getPathInfo() === '/') {
+    \Drupal::messenger()->deleteByType('status');
+    $state->delete('smart_store.clear_install_status_messages');
+  }
+}
+
+/**
  * Implements hook_form_alter().
  */
 function ss_modify_form_alter(&$form, FormStateInterface $form_state, $form_id) {
