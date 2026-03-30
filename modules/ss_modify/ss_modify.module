@@ -11,15 +11,47 @@ use Drupal\Core\Form\FormStateInterface;
  * Implements hook_page_attachments().
  */
 function ss_modify_page_attachments(array &$attachments) {
+  $messenger = \Drupal::messenger();
   $state = \Drupal::state();
-  if (!$state->get('smart_store.clear_install_status_messages')) {
+
+  // Only act on the front page (works with language prefixes and custom front).
+  if (!\Drupal::service('path.matcher')->isFrontPage()) {
     return;
   }
 
-  // Clear installer status messages on first page view after install.
-  $request = \Drupal::requestStack()->getCurrentRequest();
-  if ($request && $request->getPathInfo() === '/') {
-    \Drupal::messenger()->deleteByType('status');
+  $status_messages = $messenger->messagesByType('status');
+  if (empty($status_messages)) {
+    return;
+  }
+
+  $should_clear = (bool) $state->get('smart_store.clear_install_status_messages');
+
+  // Fallback: if the flag is missing (older installs), clear only if these are
+  // clearly install-related messages.
+  if (!$should_clear) {
+    $needles = [
+      'Thanks for installing',
+      'translation file imported',
+      'translations were added',
+      'translations were updated',
+      'translations were removed',
+      'configuration was successfully updated',
+      'Congratulations, you installed Smart Store',
+      'Congratulations, you uninstalled Smart Store',
+    ];
+    foreach ($status_messages as $message) {
+      $text = strip_tags((string) $message);
+      foreach ($needles as $needle) {
+        if (stripos($text, $needle) !== FALSE) {
+          $should_clear = TRUE;
+          break 2;
+        }
+      }
+    }
+  }
+
+  if ($should_clear) {
+    $messenger->deleteByType('status');
     $state->delete('smart_store.clear_install_status_messages');
   }
 }

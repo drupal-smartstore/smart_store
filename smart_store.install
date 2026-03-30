@@ -15,6 +15,10 @@ function smart_store_install() {
     ->set('admin', 'smart_store_admin')
     ->save();
 
+  // Ensure install-time status messages don't leak to the storefront.
+  // Cleared on the first front-page request post-install.
+  \Drupal::state()->set('smart_store.clear_install_status_messages', TRUE);
+
   // Enable ss_demo module to import all demo content.
   $module = 'ss_demo';
 
