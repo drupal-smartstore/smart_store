@@ -1,0 +1,89 @@
+{% set forecast = data.forecast %}
+
+<div class="theme-forecast">
+	{% set forecast = data.forecast %}
+	<div class="detail-container">
+		<h2>Forecast Summary</h2>
+		<p class="summary-text">
+			{{ forecast.summary|raw }}
+		</p>
+		<button id="openModalBtn" class="btn-primary">More detailed information</button>
+	</div>
+
+	<div id="detailsModal" class="modal">
+		<div class="modal-content">
+			<span class="close-btn">&times;</span>
+			<h2 class="modal-title">Detailed Market forecasts</h2>
+
+			<div class="data-section">
+				<h3>Demand Trends</h3>
+				<div class="pattern-grid">
+					{% for item in forecast.demand_trends %}
+						<div class="pattern-card">
+							<span class="trend-badge">{{ item.value_range }}</span>
+							<h4>{{ item.metric }}</h4>
+							<p>{{ item.insight }}</p>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="data-section">
+				<h3>Pricing Trends</h3>
+				<div class="pattern-grid">
+					{% for item in forecast.pricing_trends %}
+						<div class="pattern-card">
+							<span class="trend-badge">{{ item.estimated_impact }}</span>
+							<h4>{{ item.segment }}</h4>
+							<p>{{ item.trend_description }}</p>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="data-section">
+				<h3>Margin Benchmarks</h3>
+				<div class="pattern-grid">
+					{% for item in forecast.margin_benchmarks %}
+						<div class="pattern-card">
+							<span class="trend-badge">{{ item.typical_margin_range }}</span>
+							<h4>{{ item.category }}</h4>
+							<p>{{ item.note }}</p>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="data-section">
+				<h3>Seasonal Indexes</h3>
+				<div class="pattern-grid">
+					{% for item in forecast.seasonal_indexes %}
+						<div class="pattern-card month-card">
+							<span class="month-label">{{ item.month }}</span>
+							<p class="month-value">{{ item.demand_index }}</p>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="data-section">
+				<h3>Risk Assessment</h3>
+				<div class="risk-container">
+					{% for item in forecast.risk_factors %}
+						<div class="modern-info-box mb-small">
+							<div class="risk-content">
+								<div class="flex-between">
+									<span class="risk-title text-bold">Potential Risk</span>
+									<span class="trend-badge trend-{{ item.probability|lower }}">
+										{{ item.probability|upper }}
+									</span>
+								</div>
+								<p class="details-text">{{ item.risk }}</p>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

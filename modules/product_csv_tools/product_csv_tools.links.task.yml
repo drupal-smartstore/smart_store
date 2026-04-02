@@ -1,0 +1,5 @@
+product_csv_tools.import_tab:
+  title: "Import CSV"
+  route_name: product_csv_tools.import_export_products
+  base_route: product_csv_tools.import_export_products
+  weight: 0

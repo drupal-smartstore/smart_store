@@ -1,0 +1,27 @@
+commerce_ai_intelligence.dashboard:
+  title: "AI Insights Hub"
+  description: "Access AI-powered demand forecasting and market insights for your Drupal Commerce products."
+  route_name: commerce_ai_intelligence.dashboard
+  parent: system.admin_content
+  weight: 0
+
+commerce_ai_intelligence.market_insights_list:
+  title: "Market Insights"
+  description: "View AI-generated market insights based on your product data and sales history."
+  route_name: commerce_ai_intelligence.market_insights_list
+  parent: commerce_ai_intelligence.dashboard
+  weight: 1
+
+commerce_ai_intelligence.forecast_list:
+  title: "AI Forecast"
+  description: "View AI-generated forecasts based on your product data and sales history."
+  route_name: commerce_ai_intelligence.forecast_list
+  parent: commerce_ai_intelligence.dashboard
+  weight: 2
+
+commerce_ai_intelligence.settings:
+  title: "AI Insights Settings"
+  description: "Configure AI-powered demand forecasting and market insights settings."
+  route_name: commerce_ai_intelligence.settings
+  parent: commerce_ai_intelligence.dashboard
+  weight: 15

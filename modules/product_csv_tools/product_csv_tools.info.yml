@@ -1,0 +1,5 @@
+name: 'Product CSV Tools'
+type: module
+description: 'Module for importing the products'
+package: Custom
+core_version_requirement: ^10 || ^11

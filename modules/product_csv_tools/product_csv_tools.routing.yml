@@ -1,0 +1,23 @@
+product_csv_tools.admin_config:
+  path: "/admin/config/product-csv-tools"
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: "Product CSV Tools"
+  requirements:
+    _permission: "administer site configuration"
+
+product_csv_tools.export_products:
+  path: "/admin/products/export-csv"
+  defaults:
+    _controller: '\Drupal\product_csv_tools\Controller\ProductCsvController::exportProducts'
+    _title: "Export Products CSV"
+  requirements:
+    _permission: "administer commerce_product"
+
+product_csv_tools.import_export_products:
+  path: "/admin/products/import-export-csv"
+  defaults:
+    _form: '\Drupal\product_csv_tools\Form\ProductImportForm'
+    _title: "Import/Export Products CSV"
+  requirements:
+    _permission: "administer commerce_product"

@@ -1,0 +1,13 @@
+ss_dashboard.admin:
+  title: "Smart Store"
+  description: "Smart Store settings and tools."
+  route_name: ss_dashboard.admin_config
+  parent: system.admin_config
+  weight: 60
+
+ss_dashboard.dashboard_config:
+  title: "Dashboard Config"
+  description: "Configure dashboard settings."
+  route_name: ss_dashboard.earnings_settings
+  parent: ss_dashboard.admin
+  weight: 0

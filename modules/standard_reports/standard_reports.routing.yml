@@ -1,0 +1,23 @@
+standard_reports.sales_summary:
+  path: "/reports/sales-summary"
+  defaults:
+    _controller: '\Drupal\standard_reports\Controller\SalesSummaryReportController::build'
+    _title: "Sales Summary Report"
+  requirements:
+    _permission: "access sales summary report"
+
+standard_reports.product_performance:
+  path: "/reports/product-performance"
+  defaults:
+    _controller: '\Drupal\standard_reports\Controller\ProductPerformanceReportController::build'
+    _title: "Product Performance Report"
+  requirements:
+    _permission: "access product performance report"
+
+standard_reports.customer_summary:
+  path: "/reports/customer-summary"
+  defaults:
+    _controller: '\Drupal\standard_reports\Controller\CustomerSummaryReportController::build'
+    _title: "Customer Summary Report"
+  requirements:
+    _permission: "access customer summary report"

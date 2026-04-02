@@ -1,0 +1,13 @@
+product_csv_tools.admin:
+  title: "Product CSV Tools"
+  description: "Product CSV Tools settings and tools."
+  route_name: product_csv_tools.admin_config
+  parent: system.admin_config
+  weight: 60
+
+product_csv_tools.import_export_products:
+  title: "Import/Export Products CSV"
+  description: "Import and export products as a CSV file."
+  route_name: product_csv_tools.import_export_products
+  parent: product_csv_tools.admin
+  weight: 11

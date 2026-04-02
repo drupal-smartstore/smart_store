@@ -1,0 +1,5 @@
+name: Reports
+type: module
+description: Provides basic reporting, export, and visualization features.
+core_version_requirement: ^9.3 | ^10 | ^11
+package: Data & Analytics

@@ -1,0 +1,323 @@
+<div class="forecast-modal-content side-modal">
+	<div class="modal-header">
+		<div id="modal-header__content">
+			<div class="header__content">
+				<div class="header__content--info">
+					<span class="header__content--info-badge">Forecast request #{{ product.id }}</span>
+					<span class="header__content--info-text">Product:
+						{{ product.product_id }}</span>
+				</div>
+				<h2>{{ product.product_name }}</h2>
+				<div class="header__content--details">
+					<span>Category:
+						{{ product.category }}</span>
+					<span>Confidence Score:
+						<strong>{{ product.confidence_score.overall }}</strong>
+					</span>
+				</div>
+			</div>
+		</div>
+		<button class="close-btn" id="closeDrawerBtn">
+			<i class="fa-solid fa-xmark"></i>
+		</button>
+	</div>
+	<div class="modal-body" id="modalBodyContent">
+		<div class="stat-grid">
+			<div class="stat-item">
+				<span class="stat-label">Total Score</span>
+				<span class="stat-value">{{ product.opportunity_score.total }}</span>
+			</div>
+			<div class="stat-item">
+				<span class="stat-label">Demand</span>
+				<span class="stat-value">{{ product.opportunity_score.demand }}</span>
+			</div>
+			<div class="stat-item">
+				<span class="stat-label">Margin</span>
+				<span class="stat-value">{{ product.opportunity_score.margin }}</span>
+			</div>
+			<div class="stat-item">
+				<span class="stat-label">Trend Align</span>
+				<span class="stat-value">{{ product.opportunity_score.trend_alignment }}</span>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="card-header" style="">
+				Strategic Decision Framing
+			</div>
+			<div class="card-body">
+				<span class="section-title">Headline Forecast</span>
+				<p>{{ product.decision_framing.headline_forecast }}</p>
+
+				<div class="key-recommended-action">
+					<span class="section-title">Key Recommended Action</span>
+					<p>{{ product.decision_framing.key_action }}</p>
+				</div>
+
+				<div class="forecast-modal-grid">
+					<div>
+						<span class="section-title">Owner</span>
+						<p style="font-size: 12px; font-weight: 600;">{{ product.decision_framing.action_owner }}</p>
+					</div>
+					<div>
+						<span class="section-title">Timeline</span>
+						<p style="font-size: 12px; font-weight: 600;">{{ product.decision_framing.action_timeline }}</p>
+					</div>
+				</div>
+				<span class="section-title">Risk if Delayed</span>
+				<p>{{ product.decision_framing.risk_if_delayed }}</p>
+
+			</div>
+		</div>
+
+		<div class="forecast-modal-grid">
+			<div class="card">
+				<div class="card-header" style="color: var(--color-demand)">
+					<p>Demand Forecast</p>
+					<div class="tooltip">
+						<i class="fas fa-info-circle" tabindex="0" aria-label="Demand forecast details" style="color: var(--color-demand)"></i>
+
+						<span class="tooltiptext">
+							<strong>Key Drivers:</strong>
+							<ul>
+								{% for key_driver in product.demand_forecast.key_drivers %}
+									<li>
+										{% if key_driver is iterable and key_driver.name is defined %}
+											<strong>{{ key_driver.name }}:</strong>
+											{{ key_driver.impact|default('') }}
+										{% else %}
+											{{ key_driver }}
+										{% endif %}
+									</li>
+								{% endfor %}
+							</ul>
+
+							<span class="confidence-note">
+								<strong>Confidence Notes:</strong>
+								{{ product.demand_forecast.confidence_note }}
+							</span>
+						</span>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="info-row">
+						<span>Next 3m</span>
+						<span>{{ product.demand_forecast.next_3_months }}</span>
+					</div>
+					<div class="info-row">
+						<span>Next 12m</span>
+						<span>{{ product.demand_forecast.next_12_months }}</span>
+					</div>
+					<div class="info-row">
+						<span>CAGR Est.</span>
+						<span style="color: var(--accent)">{{ product.demand_forecast.cagr_estimate }}</span>
+					</div>
+					<div class="info-row">
+						<span>Confidence</span>
+						<span class="status-badge status-low">{{ product.demand_forecast.confidence }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" style="color: var(--color-strategy)">Price Forecast</div>
+				<div class="card-body">
+					{% set trajectory_class = product.price_forecast.price_trajectory|default('stable')|lower|replace({' ': '-'}) %}
+					<div class="info-row">
+						<span>Trajectory</span>
+						<span>
+							<div class="trajectory trajectory--{{ trajectory_class }}">
+								<span style="font-weight: 800; text-transform: capitalize;">{{ product.price_forecast.price_trajectory }}</span>
+								<span style="font-size: 11px; opacity: 0.8;">({{ product.price_forecast.estimated_change }})</span>
+							</div>
+						</span>
+					</div>
+					<div class="info-row">
+						<span>Market Range</span>
+						<span>{{ product.price_forecast.current_market_range }}</span>
+					</div>
+					<div class="info-row">
+						<span>Suggested SP</span>
+						<span style="font-weight:800;">{{ product.price_forecast.suggested_selling_price }}</span>
+					</div>
+					<div class="info-row">
+						<span>Strategy</span>
+						<span class="badge-tag">{{ product.price_forecast.strategy }}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="forecast-modal-grid">
+			<div class="card">
+				<div class="card-header" style="color: var(--accent)">
+					<p>Profit &amp; Cost</p>
+					<div class="tooltip">
+						<i class="fas fa-info-circle" tabindex="0" aria-label="Cost structure details" style="color: var(--accent)"></i>
+
+						<span class="tooltiptext">
+							<strong>Cost Structure Note:</strong>
+							{{ product.profit_cost.cost_structure_note }}
+						</span>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="info-row">
+						<span>Margin %</span>
+						<span style="font-weight: 800; color: var(--accent)">{{ product.profit_cost.margin_percentage }}</span>
+					</div>
+					<div class="info-row">
+						<span>Margin Level</span>
+						<span class="status-badge status-medium">{{ product.profit_cost.margin_level }}</span>
+					</div>
+					<div class="sensitivity-section" style="margin-top:8px;">
+						<span class="section-title">Sensitivity</span>
+						<ul>
+							{% for item in product.profit_cost.sensitivity %}
+								<li>
+									{% if item is iterable and item.name is defined %}
+										<strong>{{ item.name }}:</strong>
+										{{ item.level|default('') }}
+									{% else %}
+										{{ item }}
+									{% endif %}
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" style="color: var(--color-meta)">Benchmarks</div>
+				<div class="card-body">
+					{% if product.benchmarks.demand_vs_last_year != "unknown" %}
+						<div class="info-row">
+							<span>Demand vs Last Year</span>
+							<span class="badge-tag">{{ product.benchmarks.demand_vs_last_year }}</span>
+						</div>
+					{% endif %}
+					{% if product.benchmarks.demand_vs_category_avg != "unknown" %}
+						<div class="info-row">
+							<span>Demand vs Category</span>
+							<span class="badge-tag">{{ product.benchmarks.demand_vs_category_avg }}</span>
+						</div>
+					{% endif %}
+					{% if product.benchmarks.price_vs_competitors != "unknown" %}
+						<div class="info-row">
+							<span>Price vs Comp.</span>
+							<span class="badge-tag">{{ product.benchmarks.price_vs_competitors }}</span>
+						</div>
+					{% endif %}
+					{% if product.benchmarks.margin_vs_competitors != "unknown" %}
+						<div class="info-row">
+							<span>Margin vs Comp.</span>
+							<span class="badge-tag">{{ product.benchmarks.margin_vs_competitors }}</span>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+
+		<div class="forecast-modal-grid">
+			<div class="card">
+				<div class="card-header" style="color: var(--color-seasonality)">Seasonality</div>
+				<div class="card-body">
+					<div class="info-row">
+						<span>Peak Months</span>
+						<span>{{ product.seasonality.peak_months|join(', ') }}</span>
+					</div>
+					<div class="info-row">
+						<span>Multiplier</span>
+						<span style="font-weight:800;">{{ product.seasonality.demand_multiplier }}x</span>
+					</div>
+					<div style="margin-top:8px;">
+						<span class="section-title">Recommendation</span>
+						<p style="font-size:11px; color:var(--text-muted); line-height:1.4;">{{ product.seasonality.inventory_buffer_recommendation }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" style="color: var(--color-competition)">Operations</div>
+				<div class="card-body">
+					<div class="info-row">
+						<span>Inv Units</span>
+						<span>{{ product.operational_forecast.recommended_inventory_units }}</span>
+					</div>
+					<div class="info-row">
+						<span>Lead Time Weeks</span>
+						<span>{{ product.operational_forecast.lead_time_weeks }}</span>
+					</div>
+					<div class="info-row">
+						<span>Reorder</span>
+						<span>{{ product.operational_forecast.reorder_frequency }}</span>
+					</div>
+					<div class="info-row">
+						<span>Risk</span>
+						<span class="badge-tag">{{ product.operational_forecast.stockout_risk }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" style="color: var(--accent)">Review Cadence</div>
+				<div class="card-body">
+					<div class="sensitivity-section" style="margin-top:8px;">
+						<span class="section-title">Sensitivity</span>
+						<ul>
+							{% for item in product.review_cadence.trigger_conditions %}
+								<li>
+									{{ item }}
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" style="color: var(--accent)">Historical Performance</div>
+				<div class="card-body">
+					{% if product.historical_performance.last_12_months_sales_range and product.historical_performance.last_12_months_sales_range != "unknown" %}
+						<div class="info-row">
+							<span>Last 12 Months Sales Range</span>
+							<span>{{ product.historical_performance.last_12_months_sales_range }}</span>
+						</div>
+					{% endif %}
+					{% if product.historical_performance.year_over_year_growth != "unknown" %}
+						<div class="info-row">
+							<span>Year Over Year Growth</span>
+							<span>{{ product.historical_performance.year_over_year_growth }}</span>
+						</div>
+					{% endif %}
+					<div class="info-row">
+						<span>Seasonal Pattern</span>
+						<span>{{ product.historical_performance.seasonal_pattern }}</span>
+					</div>
+					<div class="info-row">
+						<span>Notes</span>
+						<span>{{ product.historical_performance.notes }}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="card" style="background: var(--warning-light); border-color: rgba(255, 82, 0, 0.2);">
+			<div class="card-body" style="display: flex; gap: 12px;">
+				<div style="color: var(--warning-main); margin-top: 2px;">
+					<i class="fa-solid fa-shield-halved" style="font-size: 18px;"></i>
+				</div>
+				<div>
+					<span class="section-title" style="color: var(--warning-main)">AI Confidence Note</span>
+					<p style="font-size: 12px; line-height: 1.4; margin-bottom: 8px;">{{ product.demand_forecast.confidence_note }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div style="font-size: 10px; color: var(--color-meta);" id="modalFooterMeta">
+			<div style="display: flex; justify-content: space-between; width: 100%;">
+				<span>Version: 1.0 • AI quantitative forecast engine</span>
+				<span>Sources: store_data, market_insight_data, category proxy</span>
+			</div>
+		</div>
+	</div>
+
+</div>

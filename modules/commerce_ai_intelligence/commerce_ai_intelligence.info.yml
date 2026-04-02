@@ -1,0 +1,8 @@
+name: "Commerce AI Intelligence"
+type: module
+description: "AI-powered market intelligence system providing strategic insights and demand forecasting for commerce products."
+package: Commerce
+core_version_requirement: "^10 || ^11"
+dependencies:
+  - drupal:commerce
+  - drupal:ai

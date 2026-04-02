@@ -1,0 +1,51 @@
+services:
+  commerce_ai_intelligence.prompts:
+    class: Drupal\commerce_ai_intelligence\Service\AiPromptsService
+    arguments:
+      - "@logger.factory"
+
+  commerce_ai_intelligence.manager:
+    class: Drupal\commerce_ai_intelligence\Service\AiIntelligenceManager
+    arguments:
+      - "@database"
+      - "@entity_type.manager"
+      - "@ai.provider"
+      - "@config.factory"
+      - "@datetime.time"
+      - "@logger.factory"
+      - "@country_manager"
+      - "@commerce_ai_intelligence.prompts"
+
+  commerce_ai_intelligence.commerce_data:
+    class: Drupal\commerce_ai_intelligence\Service\CommerceDataService
+    arguments:
+      - "@database"
+      - "@entity_type.manager"
+      - "@cache.default"
+      - "@logger.factory"
+      - "@datetime.time"
+      - "@commerce_ai_intelligence.manager"
+
+  commerce_ai_intelligence.market_analysis:
+    class: Drupal\commerce_ai_intelligence\Service\AiMarketAnalysisService
+    arguments:
+      - "@database"
+      - "@entity_type.manager"
+      - "@ai.provider"
+      - "@config.factory"
+      - "@datetime.time"
+      - "@logger.factory"
+      - "@commerce_ai_intelligence.commerce_data"
+      - "@commerce_ai_intelligence.manager"
+
+  commerce_ai_intelligence.forecast:
+    class: Drupal\commerce_ai_intelligence\Service\AiForecastService
+    arguments:
+      - "@database"
+      - "@entity_type.manager"
+      - "@ai.provider"
+      - "@config.factory"
+      - "@datetime.time"
+      - "@logger.factory"
+      - "@commerce_ai_intelligence.commerce_data"
+      - "@commerce_ai_intelligence.manager"

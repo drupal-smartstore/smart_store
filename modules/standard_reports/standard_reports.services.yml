@@ -1,0 +1,12 @@
+services:
+  standard_reports.report_service:
+    class: Drupal\standard_reports\Service\ReportService
+    arguments:
+      - "@database"
+      - "@logger.factory"
+      - "@entity_type.manager"
+      - "@current_user"
+      - "@datetime.time"
+      - "@config.factory"
+      - "@request_stack"
+      - "@?commerce_stock.service_manager"

@@ -1,0 +1,83 @@
+commerce_ai_intelligence.dashboard:
+  path: "/admin/commerce-ai-intelligence"
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: "AI Intelligence Hub"
+  requirements:
+    _permission: "administer commerce ai intelligence"
+
+commerce_ai_intelligence.settings:
+  path: "/admin/commerce-ai-intelligence/settings"
+  defaults:
+    _form: '\Drupal\commerce_ai_intelligence\Form\IntelligenceSettingsForm'
+    _title: "AI Intelligence Settings"
+  requirements:
+    _permission: "administer commerce ai intelligence"
+
+commerce_ai_intelligence.market_insight_request:
+  path: "/admin/commerce-ai-intelligence/market-insight/request"
+  defaults:
+    _form: '\Drupal\commerce_ai_intelligence\Form\MarketInsightRequestForm'
+    _title: "Generate Market Insight"
+  requirements:
+    _permission: "administer commerce ai intelligence"
+
+commerce_ai_intelligence.market_insights_list:
+  path: "/admin/commerce-ai-intelligence/market-insights"
+  defaults:
+    _controller: '\Drupal\commerce_ai_intelligence\Controller\MarketInsightsController::listing'
+    _title: "Market Insights"
+  requirements:
+    _permission: "administer commerce ai intelligence"
+
+commerce_ai_intelligence.market_insight_view:
+  path: "/admin/commerce-ai-intelligence/market-insights/{id}"
+  defaults:
+    _controller: '\Drupal\commerce_ai_intelligence\Controller\MarketInsightsController::view'
+    _title: "View Market Insight"
+  requirements:
+    _permission: "administer commerce ai intelligence"
+    id: '\d+'
+
+commerce_ai_intelligence.forecast_list:
+  path: "/admin/commerce-ai-intelligence/forecast"
+  defaults:
+    _controller: '\Drupal\commerce_ai_intelligence\Controller\ForecastController::listing'
+    _title: "Forecast"
+  requirements:
+    _permission: "administer commerce ai intelligence"
+
+commerce_ai_intelligence.forecast_request:
+  path: "/admin/commerce-ai-intelligence/forecast/request"
+  defaults:
+    _form: '\Drupal\commerce_ai_intelligence\Form\ForecastRequestForm'
+    _title: "Generate Forecast"
+  requirements:
+    _permission: "administer commerce ai intelligence"
+
+commerce_ai_intelligence.forecast_view:
+  path: "/admin/commerce-ai-intelligence/forecast/{id}"
+  defaults:
+    _controller: '\Drupal\commerce_ai_intelligence\Controller\ForecastController::view'
+    _title: "View Forecast"
+  requirements:
+    _permission: "administer commerce ai intelligence"
+    id: '\d+'
+
+commerce_ai_intelligence.product_insight_modal:
+  path: "/admin/commerce-ai-intelligence/product/{id}/insight/modal"
+  defaults:
+    _controller: '\Drupal\commerce_ai_intelligence\Controller\ProductModalController::insightModal'
+    _title: "Product Insights"
+  requirements:
+    _permission: "access content"
+    id: '\d+'
+
+commerce_ai_intelligence.product_forecast_modal:
+  path: "/admin/commerce-ai-intelligence/product/{id}/forecast/modal"
+  defaults:
+    _controller: '\Drupal\commerce_ai_intelligence\Controller\ProductModalController::forecastModal'
+    _title: "Product Forecast"
+  requirements:
+    _permission: "access content"
+    id: '\d+'

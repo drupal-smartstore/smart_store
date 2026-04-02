@@ -1,0 +1,343 @@
+<div id="insightModal" class="side-modal">
+	<div id="drawerOverlay" class="drawer-overlay"></div>
+
+	<div id="insightsDrawer" class="insights-drawer">
+		<button id="closeDrawerBtn" class="drawer-close-btn" aria-label="Close Market Insight Details">
+			<i class="fas fa-times"></i>
+		</button>
+
+		<div
+			class="drawer-body">
+
+			<!-- HERO -->
+			<div class="product-hero">
+				<h2 class="drawer-product-title">{{ product.product_name }}</h2>
+
+				<div class="drawer-badges">
+					<span class="badge-soft-blue">{{ product.category|capitalize }}</span>
+					<span class="badge-soft-grey">
+						Confidence:
+						{{ product.metadata.confidence_overall|capitalize }}
+					</span>
+				</div>
+			</div>
+
+			<!-- DEMAND -->
+			<div class="insight-section">
+				<div class="insight-section-header">
+					<h3 class="insight-section-title">
+						<span class="icon icon-demand">
+							<i class="fas fa-chart-line"></i>
+						</span>
+						Demand
+						<span class="sub-meta">
+							<strong>Trend:</strong>
+							<span class="meta-value">
+								{{ product.demand_momentum.momentum|capitalize }}
+							</span>
+						</span>
+					</h3>
+				</div>
+
+				<div class="modern-info-box">
+					{{ product.demand_momentum.evidence }}
+				</div>
+
+				<div class="text-sm-muted">
+					<strong>Source:</strong>
+					{{ product.demand_momentum.source_type|capitalize }}
+				</div>
+
+				<div class="text-sm-muted">
+					<strong>Confidence Note:</strong>
+					{{ product.demand_momentum.confidence_note|capitalize }}
+				</div>
+			</div>
+
+			<!-- TREND -->
+			<div class="insight-section">
+				<div class="insight-section-header">
+					<h3 class="insight-section-title">
+						<span class="icon icon-trend">
+							<i class="fas fa-fire"></i>
+						</span>
+						Trend
+						<span class="sub-meta">
+							<strong>Momentum:</strong>
+							<span class="meta-value">
+								{{ product.trend_dynamics.momentum|capitalize }}
+							</span>
+						</span>
+					</h3>
+				</div>
+
+				<div class="modern-info-box">
+					{{ product.trend_dynamics.evidence }}
+				</div>
+				<div class="text-sm-muted">
+					<strong>Source:</strong>
+					{{ product.trend_dynamics.source_type|capitalize }}
+				</div>
+				<div class="text-sm-muted">
+					<strong>Confidence Note:</strong>
+					{{ product.trend_dynamics.confidence_note|capitalize }}
+				</div>
+			</div>
+
+			<!-- COMPETITION -->
+			<div class="insight-section">
+				<div class="insight-section-header">
+					<h3 class="insight-section-title">
+						<span class="icon icon-competition">
+							<i class="fas fa-users"></i>
+						</span>
+						Competition
+						<span class="sub-meta">
+							<strong>Intensity:</strong>
+							<span class="meta-value">
+								{{ product.competition_landscape.intensity|capitalize }}
+							</span>
+						</span>
+					</h3>
+				</div>
+
+				<p class="details-text">
+					<strong>Landscape:</strong>
+					{{ product.competition_landscape.landscape }}
+				</p>
+
+				<div class="modern-info-box">
+					Gap:
+					{{ product.competition_landscape.market_share_gap_opportunity }}
+				</div>
+
+				<div class="text-sm-muted">
+					<strong>Evidence:</strong>
+					{{ product.competition_landscape.evidence|capitalize }}
+				</div>
+
+			</div>
+
+			<!-- OPPORTUNITY -->
+			<div class="insight-section">
+				<div class="insight-section-header">
+					<h3 class="insight-section-title">
+						<span class="icon icon-opportunity">
+							<i class="fas fa-flag-checkered"></i>
+						</span>
+						Opportunity
+						<span class="sub-meta">
+							<strong>Potential:</strong>
+							<span class="meta-value strong">
+								{{ product.opportunity.potential|capitalize }}
+							</span>
+						</span>
+					</h3>
+				</div>
+
+				<div class="modern-success-box">
+					<strong>Recommended action:</strong>
+					{{ product.opportunity.action }}
+				</div>
+
+				<p class="details-text mb-small">
+					<strong>Upside:</strong>
+					{{ product.opportunity.upside }}
+				</p>
+
+				<p class="details-text risk-title">
+					<i class="fas fa-exclamation-triangle"></i>
+					<strong>Risks:</strong>
+				</p>
+
+				<ul class="details-list">
+					{% for risk in product.opportunity.risk_factors %}
+						<li class="details-list-item">{{ risk }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+			<!-- SUSTAINABILITY -->
+			<div class="insight-section">
+				<div class="insight-section-header">
+					<h3 class="insight-section-title">
+						<span class="icon icon-sustainability">
+							<i class="fas fa-leaf"></i>
+						</span>
+						Sustainability
+						<span class="sub-meta">
+							<strong>Outlook:</strong>
+							<span class="meta-value">
+								{{ product.sustainability.outlook|capitalize }}
+							</span>
+						</span>
+					</h3>
+				</div>
+
+				<p class="details-text">
+					{{ product.sustainability.details }}
+				</p>
+			</div>
+
+			<!-- SEASONALITY -->
+			<div class="insight-section">
+				<div class="insight-section-header">
+					<h3 class="insight-section-title">
+						<span class="icon icon-seasonality">
+							<i class="fas fa-calendar"></i>
+						</span>
+						Seasonality
+					</h3>
+				</div>
+
+				<p class="details-text">
+					<strong>Peak Months:</strong>
+					{{ product.seasonality.peak_months|join(', ') }}
+				</p>
+
+				<p class="details-text">
+					<strong>Lead Time:</strong>
+					{{ product.seasonality.lead_time_weeks }}
+					weeks
+				</p>
+
+				<p class="details-text">
+					{{ product.seasonality.inventory_note }}
+				</p>
+			</div>
+
+			<!-- CUSTOMER SEGMENTS -->
+			<div class="insight-section">
+				<div class="insight-section-header">
+					<h3 class="insight-section-title">
+						<span class="icon icon-customer">
+							<i class="fas fa-user-group"></i>
+						</span>
+						Customer Segments
+					</h3>
+				</div>
+
+				<ul class="details-list">
+					{% for segment in product.customer_segments %}
+						<li class="details-list-item">{{ segment }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+			<!-- STRATEGIC INSIGHT -->
+			<div class="insight-section">
+				<div class="insight-section-header">
+					<h3 class="insight-section-title">
+						<span class="icon icon-strategy">
+							<i class="fas fa-lightbulb"></i>
+						</span>
+						Strategic Insight
+					</h3>
+				</div>
+
+				<p class="details-text">
+					<strong>{{ product.strategic_insight.headline }}</strong>
+				</p>
+
+				<p class="details-text">
+					{{ product.strategic_insight.explanation }}
+				</p>
+
+				{% if product.strategic_insight.contrarian_angle %}
+					<p class="details-text">
+						<strong>Contrarian:</strong>
+						{{ product.strategic_insight.contrarian_angle }}
+					</p>
+				{% endif %}
+			</div>
+
+			<!-- DECISION -->
+			<div class="insight-section">
+				<div class="insight-section-header">
+					<h3 class="insight-section-title">
+						<span class="icon icon-decision">
+							<i class="fas fa-bullseye"></i>
+						</span>
+						Decision
+					</h3>
+				</div>
+
+				<p class="details-text">
+					<strong>{{ product.decision_framing.headline_signal }}</strong>
+				</p>
+
+				<p class="details-text">
+					{{ product.decision_framing.business_implication }}
+				</p>
+
+				<p class="details-text">
+					<strong>Action:</strong>
+					{{ product.decision_framing.recommended_action }}
+				</p>
+
+				<p class="details-text">
+					<strong>Timeline:</strong>
+					{{ product.decision_framing.action_timeline }}
+				</p>
+				<p class="details-text risk-title">
+					<i class="fas fa-exclamation-triangle"></i>
+					<strong>Risks if Delayed:</strong>
+				</p>
+				<p class="details-text">
+					{{ product.decision_framing.risk_if_delayed }}
+				</p>
+			</div>
+
+			<div class="insight-section">
+				<div class="insight-section-header">
+					<h3 class="insight-section-title">
+						<span class="icon icon-seasonality">
+							<i class="fas fa-calendar-check"></i>
+						</span>
+						Review Cadence
+					</h3>
+				</div>
+
+				<p class="details-text">
+					<strong>Trigger Conditions:</strong>
+					<ul class="details-list">
+						{% for condition in product.review_cadence.trigger_conditions %}
+							<li class="details-list-item">{{ condition }}</li>
+						{% endfor %}
+					</ul>
+				</p>
+			</div>
+
+			<!-- METADATA -->
+			<div class="insight-section metadata-section">
+				<div class="insight-section-header">
+					<h3 class="insight-section-title">
+						<span class="icon icon-meta">
+							<i class="fas fa-info-circle"></i>
+						</span>
+						Metadata
+					</h3>
+				</div>
+
+				<ul class="details-list meta-list">
+					<li>
+						<i class="fas fa-robot meta-icon"></i>
+						<strong>Created by:</strong>
+						{{ product.metadata.created_by }}
+					</li>
+					<li>
+						<i class="fas fa-calendar-alt meta-icon"></i>
+						<strong>Next Review Date:</strong>
+						{{ product.review_cadence.next_review_date }}
+					</li>
+					<li>
+						<i class="fas fa-check-circle meta-icon"></i>
+						<strong>Overall Confidence:</strong>
+						{{ product.metadata.confidence_overall|capitalize }}
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</div>
